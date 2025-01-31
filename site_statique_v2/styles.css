@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+/* ================================
+   Police Google Fonts 
+   ================================ */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@300;400;600&family=Merriweather:wght@300;400;600&display=swap');
 
 * {
     box-sizing: border-box;
@@ -7,7 +10,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Merriweather', serif;
     background-color: #FFF9E6;
     color: #333;
     display: flex;
@@ -15,6 +18,14 @@ body {
     min-height: 100vh;
 }
 
+/* Appliquer Fraunces uniquement aux titres */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', serif;
+}
+
+/* ================================
+   HEADER 
+   ================================ */
 header {
     background-color: #FFCC00;
     padding: 20px;
@@ -33,6 +44,7 @@ header {
     font-weight: 600;
     color: #333;
     margin: 0;
+    font-family: 'Fraunces', serif;
 }
 
 nav {
@@ -70,6 +82,9 @@ nav a:hover {
     background-color: #FF6347;
 }
 
+/* ================================
+   SECTION HERO 
+   ================================ */
 .hero {
     width: 100%;
     height: 300px;
@@ -92,6 +107,9 @@ nav a:hover {
     font-size: 1.2rem;
 }
 
+/* ================================
+   SECTION CONTENT 
+   ================================ */
 .content {
     width: 90%;
     max-width: 1000px;
@@ -106,6 +124,7 @@ nav a:hover {
     margin-top: 0;
 }
 
+/* Formulaires et champs */
 form {
     display: flex;
     flex-direction: column;
@@ -144,6 +163,7 @@ button.btn:hover {
     background-color: #FF6347;
 }
 
+/* Listes et liens */
 ul {
     list-style: none;
     padding: 0;
@@ -170,6 +190,9 @@ ul li span.status {
     background-color: #FFA500;
 }
 
+/* ================================
+   DASHBOARD 
+   ================================ */
 .dashboard-cards {
     display: flex;
     flex-wrap: wrap;
@@ -197,6 +220,9 @@ ul li span.status {
     justify-content: center;
 }
 
+/* ================================
+   FOOTER 
+   ================================ */
 footer {
     background-color: #FFD700;
     padding: 10px;
@@ -206,6 +232,9 @@ footer {
     font-size: 0.9rem;
 }
 
+/* ================================
+   RESPONSIVE MEDIA QUERIES
+   ================================ */
 @media (max-width: 768px) {
     header {
         justify-content: center;
