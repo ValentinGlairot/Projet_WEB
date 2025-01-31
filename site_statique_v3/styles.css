@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFF9E6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #FFCC00;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #FF7F50;
+    color: white;
+}
+
+.btn-login {
+    background-color: #FFA07A;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #FF6347;
+}
+
+.hero {
+    width: 100%;
+    height: 300px;
+    background: url('hero-image.jpg') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+
+.content {
+    width: 90%;
+    max-width: 1000px;
+    background-color: #fff;
+    margin: 80px auto 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+.content h3, .content h2 {
+    margin-top: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+label {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button.btn {
+    background-color: #FFA07A;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px 0;
+}
+
+button.btn:hover {
+    background-color: #FF6347;
+}
+
+/* Boutons "Voir" en vert */
+.btn-voir {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px 0;
+}
+
+.btn-voir:hover {
+    background-color: #45a049;
+}
+
+/* Boutons "Ajouter", "Créer un compte", etc. */
+.btn-add {
+    background-color: #FFA07A;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px 0;
+}
+
+.btn-add:hover {
+    background-color: #FF6347;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li span.status {
+    margin-left: 10px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.status.accepted {
+    background-color: #4CAF50;
+}
+
+.status.pending {
+    background-color: #FFA500;
+}
+
+.dashboard-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0;
+    justify-content: center;
+}
+
+.card {
+    background-color: #F0F0F0;
+    border-radius: 8px;
+    width: 200px;
+    padding: 20px;
+    text-align: center;
+}
+
+.dashboard-actions {
+    margin-top: 30px;
+}
+
+.dashboard-actions ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+footer {
+    background-color: #FFD700;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    header {
+        justify-content: center;
+    }
+    .logo {
+        margin-bottom: 10px;
+    }
+    nav {
+        justify-content: center;
+    }
+    .content {
+        margin-top: 120px;
+    }
+}
+
+/* Bouton "S'inscrire" pastel */
+.btn-register {
+    background-color: #C3B1E1; /* Pastel mauve */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px 0;
+    text-decoration: none; /* Pas de soulignement */
+}
+
+.btn-register:hover {
+    background-color: #B19CD9; /* Variation au survol */
+}
+
