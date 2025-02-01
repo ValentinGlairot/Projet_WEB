@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion des Pilotes de Promotion</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <h1 class="logo">CESI Ta Chance</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="gestion-pilotes.html">Pilotes</a>
+      <a href="entreprise.html">Entreprises</a>
+      <a href="offres.html">Offres</a>
+      <a href="candidatures.html">Candidatures</a>
+      <a href="wishlist.html">Ma Wishlist</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+    <a href="login.html" class="btn-login">Connexion</a>
+  </header>
+  
+  <section class="content">
+    <h2>Gestion des Pilotes de Promotion</h2>
+    <div class="dashboard-actions">
+      <ul>
+        <li><a href="#rechercher" class="btn-login">Rechercher un Pilote</a></li>
+        <li><a href="#creer" class="btn-login">Créer un Pilote</a></li>
+        <li><a href="#modifier" class="btn-login">Modifier un Pilote</a></li>
+        <li><a href="#supprimer" class="btn-login">Supprimer un Pilote</a></li>
+      </ul>
+    </div>
+    
+    <!-- SFx 13 - Rechercher et afficher un compte Pilote -->
+    <div id="rechercher" style="margin-top: 40px;">
+      <h3>Rechercher un Pilote</h3>
+      <form>
+        <label for="nom-pilote">Nom :</label>
+        <input type="text" id="nom-pilote" name="nom-pilote">
+        <label for="prenom-pilote">Prénom :</label>
+        <input type="text" id="prenom-pilote" name="prenom-pilote">
+        <button type="submit" class="btn">Rechercher</button>
+      </form>
+    </div>
+    
+    <!-- SFx 14 - Créer un compte Pilote -->
+    <div id="creer" style="margin-top: 40px;">
+      <h3>Créer un Pilote</h3>
+      <form>
+        <label for="nom-create-pilote">Nom :</label>
+        <input type="text" id="nom-create-pilote" name="nom-create-pilote" required>
+        <label for="prenom-create-pilote">Prénom :</label>
+        <input type="text" id="prenom-create-pilote" name="prenom-create-pilote" required>
+        <button type="submit" class="btn">Créer le Pilote</button>
+      </form>
+    </div>
+    
+    <!-- SFx 15 - Modifier un compte Pilote -->
+    <div id="modifier" style="margin-top: 40px;">
+      <h3>Modifier un Pilote</h3>
+      <form>
+        <label for="id-modif-pilote">ID ou Nom :</label>
+        <input type="text" id="id-modif-pilote" name="id-modif-pilote" required>
+        <label for="nom-modif-pilote">Nouveau Nom :</label>
+        <input type="text" id="nom-modif-pilote" name="nom-modif-pilote">
+        <label for="prenom-modif-pilote">Nouveau Prénom :</label>
+        <input type="text" id="prenom-modif-pilote" name="prenom-modif-pilote">
+        <button type="submit" class="btn">Modifier le Pilote</button>
+      </form>
+    </div>
+    
+    <!-- SFx 16 - Supprimer un compte Pilote -->
+    <div id="supprimer" style="margin-top: 40px;">
+      <h3>Supprimer un Pilote</h3>
+      <form>
+        <label for="id-suppr-pilote">ID ou Nom :</label>
+        <input type="text" id="id-suppr-pilote" name="id-suppr-pilote" required>
+        <button type="submit" class="btn">Supprimer le Pilote</button>
+      </form>
+    </div>
+  </section>
+  
+  <footer>
+    <p>Contact : contact@cesitachance.com</p>
+  </footer>
+  
+</body>
+</html>
