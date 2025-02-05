@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modifier une Offre</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+
+<header>
+  <img src="../images/logo.png" alt="Logo" class="header-logo">
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="offres.html">Offres</a>
+    <a href="entreprise.html">Entreprises</a>
+    <a href="candidatures.html">Candidatures</a>
+    <a href="wishlist.html">Ma Wishlist</a>
+    <a href="contact.html">Contact</a>
+    <a href="dashboard.html">Dashboard</a>
+  </nav>
+  <a href="login.html" class="btn-login">Connexion</a>
+</header>
+  
+<section class="content">
+  <h3>Modifier une Offre de Stage</h3>
+  <form>
+    <label for="offer-id">ID de l'Offre :</label>
+    <input type="text" id="offer-id" name="offer-id" required>
+      
+    <label for="competences">Compétences :</label>
+    <select id="competences" name="competences" multiple required>
+      <option value="web">Web</option>
+      <option value="data">Data</option>
+      <option value="marketing">Marketing</option>
+      <option value="gestion">Gestion de projet</option>
+    </select>
+      
+    <label for="titre">Titre :</label>
+    <input type="text" id="titre" name="titre" required>
+      
+    <label for="description">Description :</label>
+    <textarea id="description" name="description" required></textarea>
+      
+    <label for="entreprise">Entreprise :</label>
+    <input type="text" id="entreprise" name="entreprise" required>
+      
+    <label for="remuneration">Base de rémunération :</label>
+    <input type="text" id="remuneration" name="remuneration" required>
+      
+    <label for="date-debut">Date de début :</label>
+    <input type="date" id="date-debut" name="date-debut" required>
+      
+    <label for="date-fin">Date de fin :</label>
+    <input type="date" id="date-fin" name="date-fin" required>
+      
+    <button type="submit" class="btn">Modifier l'Offre</button>
+  </form>
+</section>
+  
+<footer>
+  <p>
+    © 2025 - CESI Ta Chance | 
+    <a href="mentions-legales.html">Mentions légales</a> | 
+    <a href="conditions-generales.html">Conditions générales</a> | 
+    <a href="politique-confidentialite.html">Politique de confidentialité</a> | 
+    Contact : contact@cesitachance.com
+  </p>
+</footer>
+<script src="../js/modal.js"></script>
+<script src="../js/modifier-offre.js"></script>
+</body>
+</html>
