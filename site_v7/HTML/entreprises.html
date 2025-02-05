@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Liste et recherche d'entreprises proposant des stages sur CESI Ta Chance">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entreprises</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+
+  <header>
+    <img src="../images/logo.png" alt="Logo" class="header-logo">
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="offres.html">Offres</a>
+      <a href="entreprises.html">Entreprises</a>
+      <a href="candidatures.html">Candidatures</a>
+      <a href="wishlist.html">Ma Wishlist</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  
+    <div id="user-menu">
+      <a href="login.html" id="login-btn" class="btn-login">Connexion</a>
+      <div id="user-icon" class="hidden">
+        <img src="../images/logo_deco.png" alt="Utilisateur" class="user-logo">
+        <div class="dropdown-menu">
+          <button id="logout-btn">Déconnexion</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <main class="content">
+    <form class="search-form" action="#" method="GET">
+      <input type="text" name="recherche" placeholder="Nom, description, email ou téléphone">
+      <button type="submit" class="btn">Rechercher</button>
+    </form>
+
+    <h3 class="section-title">Entreprises proposant des stages</h3>
+    <ul>
+      <!-- On affiche ici 3 entreprises en exemple -->
+      <li>Entreprise A - Paris</li>
+      <li>Entreprise B - Lyon</li>
+      <li>Entreprise C - Toulouse</li>
+    </ul>
+    
+    <div class="pagination">
+      <a href="#">&laquo;</a>
+      <a href="#">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">&raquo;</a>
+    </div>
+
+    <!-- Bloc dynamique : recherche et détails d'une entreprise -->
+    <section id="entreprise-details" style="margin-top: 30px;">
+      <h4>Détails de l'entreprise recherchée</h4>
+      <p>Nom : <span id="detail-nom">-</span></p>
+      <p>Description : <span id="detail-desc">-</span></p>
+      <p>Email : <span id="detail-email">-</span></p>
+      <p>Téléphone : <span id="detail-tel">-</span></p>
+      <p>Nombre de stagiaires ayant postulé : <span id="detail-nb-stagiaires">-</span></p>
+      <p>Moyenne des évaluations : <span id="detail-moy-eval">-</span> / 5</p>
+    </section>
+    
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="gerer-entreprise.html" class="btn-login">Gérer l'entreprise</a>
+    </div>
+  </main>
+  
+  <footer>
+    <p>
+      © 2025 - CESI Ta Chance | 
+      <a href="mentions-legales.html">Mentions légales</a> | 
+      <a href="conditions-generales.html">Conditions générales</a> | 
+      <a href="politique-confidentialite.html">Politique de confidentialité</a> | 
+      Contact : contact@cesitachance.com
+    </p>
+  </footer>
+
+  <script src="../js/modal.js"></script>
+  <script src="../js/entreprises.js"></script>
+  <script src="../js/header.js"></script>
+</body>
+</html>

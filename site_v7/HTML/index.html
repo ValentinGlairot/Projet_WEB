@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CESI Ta Chance - Accueil</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+
+  <header>
+    <img src="../images/logo.png" alt="Logo" class="header-logo">
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="offres.html">Offres</a>
+      <a href="entreprises.html">Entreprises</a>
+      <a href="candidatures.html">Candidatures</a>
+      <a href="wishlist.html">Ma Wishlist</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  
+    <div id="user-menu">
+      <a href="login.html" id="login-btn" class="btn-login">Connexion</a>
+      <div id="user-icon" class="hidden">
+        <img src="../images/logo_deco.png" alt="Utilisateur" class="user-logo">
+        <div class="dropdown-menu">
+          <button id="logout-btn">Déconnexion</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  
+
+  <section class="hero">
+    <h2>Trouve le stage idéal</h2>
+    <p>Grâce à nos entreprises partenaires, poste ta candidature en un clic.</p>
+  </section>
+
+  <section class="content">
+    <h3>Dernières Offres de Stage</h3>
+    <div class="offers-container" id="offers-container">
+      <p id="no-offers-message" style="display: none; text-align: center; color: #777;">
+        Aucune offre disponible pour le moment.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 - CESI Ta Chance | <a href="mentions-legales.html">Mentions légales</a> | <a href="conditions-generales.html">Conditions générales</a> | <a href="politique-confidentialite.html">Politique de confidentialité</a> | Contact : contact@cesitachance.com</p>
+  </footer>
+
+  <script src="../js/header.js"></script>
+  <script src="../js/index.js"></script>
+
+
+</body>
+</html>

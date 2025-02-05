@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Interface de gestion d'entreprises sur CESI Ta Chance">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gérer l'entreprise</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+
+  <header>
+    <img src="../images/logo.png" alt="Logo" class="header-logo">
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="offres.html">Offres</a>
+      <a href="entreprises.html">Entreprises</a>
+      <a href="candidatures.html">Candidatures</a>
+      <a href="wishlist.html">Ma Wishlist</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  
+    <div id="user-menu">
+      <a href="login.html" id="login-btn" class="btn-login">Connexion</a>
+      <div id="user-icon" class="hidden">
+        <img src="../images/logo_deco.png" alt="Utilisateur" class="user-logo">
+        <div class="dropdown-menu">
+          <button id="logout-btn">Déconnexion</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<main class="content">
+  <h2>Gérer l'entreprise</h2>
+  <p>Dans cet espace, vous pouvez créer, modifier, évaluer ou supprimer une entreprise.</p>
+
+  <div class="dashboard-actions">
+    <ul>
+      <li><a href="#creer" class="btn-login">Créer</a></li>
+      <li><a href="#modifier" class="btn-login">Modifier</a></li>
+      <li><a href="#evaluer" class="btn-login">Évaluer</a></li>
+      <li><a href="#supprimer" class="btn-login">Supprimer</a></li>
+    </ul>
+  </div>
+
+  <!-- Créer une entreprise -->
+  <div id="creer" style="margin-top: 40px;">
+    <h3>Créer une entreprise</h3>
+    <p>Remplissez le formulaire pour créer la fiche d’une nouvelle entreprise.</p>
+    <form action="#" method="POST" id="create-entreprise-form">
+      <label for="nom-creation">Nom :</label>
+      <input type="text" id="nom-creation" name="nom-creation" required>
+
+      <label for="desc-creation">Description :</label>
+      <textarea id="desc-creation" name="desc-creation" required></textarea>
+
+      <label for="email-creation">Email :</label>
+      <input type="email" id="email-creation" name="email-creation" required>
+
+      <label for="tel-creation">Téléphone :</label>
+      <input type="tel" id="tel-creation" name="tel-creation" required>
+
+      <button type="submit" class="btn">Créer</button>
+    </form>
+  </div>
+
+  <!-- Modifier une entreprise -->
+  <div id="modifier" style="margin-top: 40px;">
+    <h3>Modifier une entreprise</h3>
+    <p>Pour mettre à jour les informations d’une entreprise existante.</p>
+    <form action="#" method="POST" id="update-entreprise-form">
+      <label for="id-modif">Nom ou ID de l’entreprise :</label>
+      <input type="text" id="id-modif" name="id-modif" placeholder="Ex : Entreprise A" required>
+
+      <label for="nom-modif">Nouveau nom (optionnel) :</label>
+      <input type="text" id="nom-modif" name="nom-modif">
+
+      <label for="desc-modif">Nouvelle description (optionnel) :</label>
+      <textarea id="desc-modif" name="desc-modif"></textarea>
+
+      <label for="email-modif">Nouvel email (optionnel) :</label>
+      <input type="email" id="email-modif" name="email-modif">
+
+      <label for="tel-modif">Nouveau téléphone (optionnel) :</label>
+      <input type="tel" id="tel-modif" name="tel-modif">
+
+      <button type="submit" class="btn">Modifier</button>
+    </form>
+  </div>
+
+  <!-- Évaluer une entreprise -->
+  <div id="evaluer" style="margin-top: 40px;">
+    <h3>Évaluer une entreprise</h3>
+    <p>Donnez une note à l’entreprise (de 1 à 5).</p>
+    <form action="#" method="POST" id="eval-entreprise-form">
+      <label for="id-eval">Nom ou ID de l’entreprise :</label>
+      <input type="text" id="id-eval" name="id-eval" placeholder="Ex : Entreprise A" required>
+
+      <label for="note-eval">Note (1 à 5) :</label>
+      <select id="note-eval" name="note-eval" required>
+        <option value="" disabled selected hidden>Choisir une note</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+
+      <button type="submit" class="btn">Évaluer</button>
+    </form>
+  </div>
+
+  <!-- Supprimer une entreprise -->
+  <div id="supprimer" style="margin-top: 40px;">
+    <h3>Supprimer une entreprise</h3>
+    <p>Retirez une entreprise du système.</p>
+    <form action="#" method="POST" id="delete-entreprise-form">
+      <label for="id-suppr">Nom ou ID de l’entreprise :</label>
+      <input type="text" id="id-suppr" name="id-suppr" placeholder="Ex : Entreprise A" required>
+      <button type="submit" class="btn">Supprimer</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <p>
+    © 2025 - CESI Ta Chance | 
+    <a href="mentions-legales.html">Mentions légales</a> | 
+    <a href="conditions-generales.html">Conditions générales</a> | 
+    <a href="politique-confidentialite.html">Politique de confidentialité</a> | 
+    Contact : contact@cesitachance.com
+  </p>
+</footer>
+
+<div id="custom-modal" class="custom-modal">
+  <div class="custom-modal-content">
+    <span class="custom-modal-close">&times;</span>
+    <p id="modal-message"></p>
+  </div>
+</div>
+
+<script src="../js/modal.js"></script>
+<script src="../js/gerer-entreprise.js"></script>
+<script src="../js/header.js"></script>
+</body>
+</html>

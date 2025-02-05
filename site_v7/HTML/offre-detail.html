@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Détail de l'Offre</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+
+  <header>
+    <img src="../images/logo.png" alt="Logo" class="header-logo">
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="offres.html">Offres</a>
+      <a href="entreprises.html">Entreprises</a>
+      <a href="candidatures.html">Candidatures</a>
+      <a href="wishlist.html">Ma Wishlist</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  
+    <div id="user-menu">
+      <a href="login.html" id="login-btn" class="btn-login">Connexion</a>
+      <div id="user-icon" class="hidden">
+        <img src="../images/logo_deco.png" alt="Utilisateur" class="user-logo">
+        <div class="dropdown-menu">
+          <button id="logout-btn">Déconnexion</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<section class="content">
+  <h3 id="offre-titre"></h3>
+  <p><strong>Entreprise :</strong> <span id="offre-entreprise"></span></p>
+  <p><strong>Rémunération :</strong> <span id="offre-remuneration"></span></p>
+  <p><strong>Début :</strong> <span id="offre-date-debut"></span> | <strong>Fin :</strong> <span id="offre-date-fin"></span></p>
+  <p><strong>Description :</strong> <span id="offre-description"></span></p>
+
+  <button class="btn">Ajouter à la wishlist</button>
+
+  <h3>Postuler</h3>
+  <form>
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" name="nom" required>
+
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="cv">Joindre votre CV :</label>
+    <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
+
+    <label for="lettre">Lettre de motivation :</label>
+    <textarea id="lettre" name="lettre" required></textarea>
+
+    <button class="btn">Envoyer ma candidature</button>
+  </form>
+</section>
+
+<footer>
+  <p>
+    © 2025 - CESI Ta Chance | 
+    <a href="mentions-legales.html">Mentions légales</a> | 
+    <a href="conditions-generales.html">Conditions générales</a> | 
+    <a href="politique-confidentialite.html">Politique de confidentialité</a> | 
+    Contact : contact@cesitachance.com
+  </p>
+</footer>
+<script src="../js/offre-detail.js"></script>
+<script src="../js/header.js"></script>
+</body>
+</html>

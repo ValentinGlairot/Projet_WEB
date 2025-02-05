@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Interface de gestion des étudiants sur CESI Ta Chance">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion des Étudiants</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+
+  <header>
+    <img src="../images/logo.png" alt="Logo" class="header-logo">
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="offres.html">Offres</a>
+      <a href="entreprises.html">Entreprises</a>
+      <a href="candidatures.html">Candidatures</a>
+      <a href="wishlist.html">Ma Wishlist</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  
+    <div id="user-menu">
+      <a href="login.html" id="login-btn" class="btn-login">Connexion</a>
+      <div id="user-icon" class="hidden">
+        <img src="../images/logo_deco.png" alt="Utilisateur" class="user-logo">
+        <div class="dropdown-menu">
+          <button id="logout-btn">Déconnexion</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<main class="content">
+  <h2>Gestion des Étudiants</h2>
+  <div class="dashboard-actions">
+    <ul>
+      <li><a href="#creer" class="btn-login">Créer un Étudiant</a></li>
+      <li><a href="#modifier" class="btn-login">Modifier un Étudiant</a></li>
+      <li><a href="#supprimer" class="btn-login">Supprimer un Étudiant</a></li>
+      <li><a href="#statistiques" class="btn-login">Stat d'un Étudiant</a></li>
+    </ul>
+  </div>
+  
+  <!-- Rechercher un étudiant -->
+  <div id="rechercher" style="margin-top: 40px;">
+    <h3>Rechercher un Étudiant</h3>
+    <form id="search-etudiant-form" action="#" method="GET">
+      <label for="nom-etudiant">Nom :</label>
+      <input type="text" id="nom-etudiant" name="nom-etudiant">
+      <label for="prenom-etudiant">Prénom :</label>
+      <input type="text" id="prenom-etudiant" name="prenom-etudiant">
+      <label for="email-etudiant">Email :</label>
+      <input type="email" id="email-etudiant" name="email-etudiant">
+      <button type="submit" class="btn">Rechercher</button>
+    </form>
+
+    <!-- Bloc d'affichage du résultat -->
+    <div id="result-search" style="margin-top:20px;">
+      <h4>Résultat de la recherche</h4>
+      <p>Nom : <span id="res-nom">-</span></p>
+      <p>Prénom : <span id="res-prenom">-</span></p>
+      <p>Email : <span id="res-email">-</span></p>
+    </div>
+  </div>
+  
+  <!-- Créer un étudiant -->
+  <div id="creer" style="margin-top: 40px;">
+    <h3>Créer un Étudiant</h3>
+    <form id="create-etudiant-form" action="#" method="POST">
+      <label for="nom-create-etudiant">Nom :</label>
+      <input type="text" id="nom-create-etudiant" name="nom-create-etudiant" required>
+      <label for="prenom-create-etudiant">Prénom :</label>
+      <input type="text" id="prenom-create-etudiant" name="prenom-create-etudiant" required>
+      <label for="email-create-etudiant">Email :</label>
+      <input type="email" id="email-create-etudiant" name="email-create-etudiant" required>
+      <button type="submit" class="btn">Créer l'Étudiant</button>
+    </form>
+  </div>
+  
+  <!-- Modifier un étudiant -->
+  <div id="modifier" style="margin-top: 40px;">
+    <h3>Modifier un Étudiant</h3>
+    <form id="update-etudiant-form" action="#" method="POST">
+      <label for="id-modif-etudiant">ID ou Email :</label>
+      <input type="text" id="id-modif-etudiant" name="id-modif-etudiant" required>
+      <label for="nom-modif-etudiant">Nouveau Nom :</label>
+      <input type="text" id="nom-modif-etudiant" name="nom-modif-etudiant">
+      <label for="prenom-modif-etudiant">Nouveau Prénom :</label>
+      <input type="text" id="prenom-modif-etudiant" name="prenom-modif-etudiant">
+      <label for="email-modif-etudiant">Nouvel Email :</label>
+      <input type="email" id="email-modif-etudiant" name="email-modif-etudiant">
+      <button type="submit" class="btn">Modifier l'Étudiant</button>
+    </form>
+  </div>
+  
+  <!-- Supprimer un étudiant -->
+  <div id="supprimer" style="margin-top: 40px;">
+    <h3>Supprimer un Étudiant</h3>
+    <form id="delete-etudiant-form" action="#" method="POST">
+      <label for="id-suppr-etudiant">ID ou Email :</label>
+      <input type="text" id="id-suppr-etudiant" name="id-suppr-etudiant" required>
+      <button type="submit" class="btn">Supprimer l'Étudiant</button>
+    </form>
+  </div>
+  
+  <!-- Statistiques d'un étudiant (état de la recherche de stage) -->
+  <div id="statistiques" style="margin-top: 40px;">
+    <h3>Statistiques d'un Étudiant</h3>
+    <form id="stat-etudiant-form" action="#" method="GET">
+      <label for="id-stat-etudiant">ID ou Email :</label>
+      <input type="text" id="id-stat-etudiant" name="id-stat-etudiant" required>
+      <button type="submit" class="btn">Consulter</button>
+    </form>
+
+    <div id="stat-result" style="margin-top:20px;">
+      <h4>Suivi de la recherche de stage</h4>
+      <p>Nom : <span id="stat-nom">-</span></p>
+      <p>Prénom : <span id="stat-prenom">-</span></p>
+      <p>Email : <span id="stat-email">-</span></p>
+      <p>Nombre de candidatures en cours : <span id="stat-candidatures">0</span></p>
+      <p>Nombre d'offres en wishlist : <span id="stat-wishlist">0</span></p>
+      <!-- Vous pouvez ajouter plus d'infos si besoin -->
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>
+    © 2025 - CESI Ta Chance | 
+    <a href="mentions-legales.html">Mentions légales</a> | 
+    <a href="conditions-generales.html">Conditions générales</a> | 
+    <a href="politique-confidentialite.html">Politique de confidentialité</a> | 
+    Contact : contact@cesitachance.com
+  </p>
+</footer>
+<script src="../js/modal.js"></script>
+<script src="../js/gestion-etudiants.js"></script>
+<script src="../js/header.js"></script>
+</body>
+</html>

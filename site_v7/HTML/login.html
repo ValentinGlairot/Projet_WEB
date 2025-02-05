@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+
+  <header>
+    <img src="../images/logo.png" alt="Logo" class="header-logo">
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="offres.html">Offres</a>
+      <a href="entreprises.html">Entreprises</a>
+      <a href="candidatures.html">Candidatures</a>
+      <a href="wishlist.html">Ma Wishlist</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  
+    <div id="user-menu">
+      <a href="login.html" id="login-btn" class="btn-login">Connexion</a>
+      <div id="user-icon" class="hidden">
+        <img src="../images/logo_deco.png" alt="Utilisateur" class="user-logo">
+        <div class="dropdown-menu">
+          <button id="logout-btn">Déconnexion</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<section class="content">
+  <h3>Connexion</h3>
+  <form>
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="password">Mot de passe :</label>
+    <input type="password" id="password" name="password" required pattern=".{8,}" title="Au moins 8 caractères">
+
+    <button class="btn">Se connecter</button>
+  </form>
+
+  <div class="account-link">
+    <p>Pas encore de compte ?</p>
+    <a href="register.html" class="btn-add">Créer un compte</a>
+  </div>
+</section>
+
+<footer>
+  <p>
+    © 2025 - CESI Ta Chance | 
+    <a href="mentions-legales.html">Mentions légales</a> | 
+    <a href="conditions-generales.html">Conditions générales</a> | 
+    <a href="politique-confidentialite.html">Politique de confidentialité</a> | 
+    Contact : contact@cesitachance.com
+  </p>
+</footer>
+<script src="../js/modal.js"></script>
+<script src="../js/login.js"></script>
+<script src="../js/header.js"></script>
+</body>
+</html>
