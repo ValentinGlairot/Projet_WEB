@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offres de Stage</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="../images/logo.png" alt="Logo" class="logo">
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="offres.html">Offres</a>
+            <a href="entreprises.html">Entreprises</a>
+            <a href="candidatures.html">Candidatures</a>
+            <a href="wishlist.html">Ma Wishlist</a>
+            <a href="contact.html">Contact</a>
+            <a href="dashboard.html">Dashboard</a>
+        </nav>
+        <a href="login.html" class="btn-login">Connexion</a>
+    </header>
+
+    <section class="content">
+        <h3>Recherche d'offres</h3>
+        <form class="search-form">
+            <label for="motcle">Mot-clé :</label>
+            <input type="text" id="motcle" name="motcle">
+            <button type="submit" class="btn">Rechercher</button>
+        </form>
+        <h3>Liste des offres disponibles</h3>
+        <ul>
+            <li>
+                Stage Développeur Web - Paris
+                <a href="offre-detail.html" class="btn-voir">Voir</a>
+                <button class="btn add-to-wishlist" data-title="Stage Développeur Web - Paris">Ajouter à ma
+                    wishlist</button>
+
+            </li>
+            <li>
+                Stage Marketing Digital - Lyon
+                <a href="offre-detail.html" class="btn-voir">Voir</a>
+                <button class="btn add-to-wishlist" data-title="Stage Marketing Digital - Lyon">Ajouter à ma
+                    wishlist</button>
+
+            </li>
+            <li>
+                Stage Ingénieur Data - Toulouse
+                <a href="offre-detail.html" class="btn-voir">Voir</a>
+                <button class="btn add-to-wishlist" data-title="Stage Ingénieur Data - Toulouse">Ajouter à ma
+                    wishlist</button>
+            </li>
+        </ul>
+
+        <div class="pagination">
+            <a href="#">&laquo;</a>
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">&raquo;</a>
+        </div>
+
+        <a href="ajout-offre.html" class="btn-add">Ajouter une Offre</a>
+    </section>
+
+    <script src="js/wishlist.js"></script>
+    <script src="js/offres.js"></script>
+
+
+    <footer>
+        <p>Contact : contact@cesitachance.com</p>
+    </footer>
+
+
+</body>
+
+</html>

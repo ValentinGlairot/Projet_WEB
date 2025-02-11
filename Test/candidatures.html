@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mes Candidatures</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <header>
+    <img src="../images/logo.png" alt="Logo" class="logo">
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="offres.html">Offres</a>
+      <a href="entreprises.html">Entreprises</a>
+      <a href="candidatures.html">Candidatures</a>
+      <a href="wishlist.html">Ma Wishlist</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+    <a href="login.html" class="btn-login">Connexion</a>
+  </header>
+
+  <section class="content">
+    <h3>Vos Candidatures</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Entreprise</th>
+          <th>Offre</th>
+          <th>Date</th>
+          <th>Lettre de motivation</th>
+          <th>Statut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Entreprise A</td>
+          <td>Stage Intelligence Artificielle</td>
+          <td>2025-01-15</td>
+          <td>Motivation pour IA</td>
+          <td><span class="status accepted">Acceptée</span> <button class="btn change-status">Changer</button></td>
+        </tr>
+        <tr>
+          <td>Entreprise B</td>
+          <td>Stage Gestion de Projet</td>
+          <td>2025-02-10</td>
+          <td>Motivation pour gestion</td>
+          <td><span class="status pending">En attente</span> <button class="btn change-status">Changer</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <button id="add-candidature" class="btn-action">Ajouter une candidature</button>
+    <button id="delete-candidature" class="btn-action">Supprimer une candidature</button>
+    <div id="confirmation-popup" class="confirmation-popup" style="display: none;">
+      <p>Voulez-vous vraiment supprimer cette candidature ?</p>
+      <button class="btn-confirm">Oui</button>
+      <button class="btn-cancel">Annuler</button>
+    </div>
+
+    <div class="pagination">
+      <a href="#">&laquo;</a>
+      <a href="#">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">&raquo;</a>
+    </div>
+  </section>
+
+  <script src="js/wishlist.js"></script>
+  <script src="js/candidature.js"></script>
+
+  <footer>
+    <p>Contact : contact@cesitachance.com</p>
+  </footer>
+
+</body>
+
+</html>

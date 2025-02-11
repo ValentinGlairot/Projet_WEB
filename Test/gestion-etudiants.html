@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion des Étudiants</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <header>
+    <img src="../images/logo.png" alt="Logo" class="logo">
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="gestion-etudiants.html">Étudiants</a>
+      <a href="entreprise.html">Entreprises</a>
+      <a href="offres.html">Offres</a>
+      <a href="candidatures.html">Candidatures</a>
+      <a href="wishlist.html">Ma Wishlist</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+    <a href="login.html" class="btn-login">Connexion</a>
+  </header>
+
+  <section class="content">
+    <h2>Gestion des Étudiants</h2>
+    <div class="dashboard-actions">
+      <ul>
+        <li><a href="#rechercher" class="btn-login">Rechercher un Étudiant</a></li>
+        <li><a href="#creer" class="btn-login">Créer un Étudiant</a></li>
+        <li><a href="#modifier" class="btn-login">Modifier un Étudiant</a></li>
+        <li><a href="#supprimer" class="btn-login">Supprimer un Étudiant</a></li>
+        <li><a href="#statistiques" class="btn-login">Statistiques d'un Étudiant</a></li>
+      </ul>
+    </div>
+
+    <!-- SFx 17 - Rechercher et afficher un compte Étudiant -->
+    <div id="rechercher" style="margin-top: 40px;">
+      <h3>Rechercher un Étudiant</h3>
+      <form>
+        <label for="nom-etudiant">Nom :</label>
+        <input type="text" id="nom-etudiant" name="nom-etudiant">
+        <label for="prenom-etudiant">Prénom :</label>
+        <input type="text" id="prenom-etudiant" name="prenom-etudiant">
+        <label for="email-etudiant">Email :</label>
+        <input type="email" id="email-etudiant" name="email-etudiant">
+        <button type="submit" class="btn">Rechercher</button>
+      </form>
+    </div>
+
+    <!-- SFx 18 - Créer un compte Étudiant -->
+    <div id="creer" style="margin-top: 40px;">
+      <h3>Créer un Étudiant</h3>
+      <form>
+        <label for="nom-create-etudiant">Nom :</label>
+        <input type="text" id="nom-create-etudiant" name="nom-create-etudiant" required>
+        <label for="prenom-create-etudiant">Prénom :</label>
+        <input type="text" id="prenom-create-etudiant" name="prenom-create-etudiant" required>
+        <label for="email-create-etudiant">Email :</label>
+        <input type="email" id="email-create-etudiant" name="email-create-etudiant" required>
+        <button type="submit" class="btn">Créer l'Étudiant</button>
+      </form>
+    </div>
+
+    <!-- SFx 19 - Modifier un compte Étudiant -->
+    <div id="modifier" style="margin-top: 40px;">
+      <h3>Modifier un Étudiant</h3>
+      <form>
+        <label for="id-modif-etudiant">ID ou Email :</label>
+        <input type="text" id="id-modif-etudiant" name="id-modif-etudiant" required>
+        <label for="nom-modif-etudiant">Nouveau Nom :</label>
+        <input type="text" id="nom-modif-etudiant" name="nom-modif-etudiant">
+        <label for="prenom-modif-etudiant">Nouveau Prénom :</label>
+        <input type="text" id="prenom-modif-etudiant" name="prenom-modif-etudiant">
+        <label for="email-modif-etudiant">Nouvel Email :</label>
+        <input type="email" id="email-modif-etudiant" name="email-modif-etudiant">
+        <button type="submit" class="btn">Modifier l'Étudiant</button>
+      </form>
+    </div>
+
+    <!-- SFx 20 - Supprimer un compte Étudiant -->
+    <div id="supprimer" style="margin-top: 40px;">
+      <h3>Supprimer un Étudiant</h3>
+      <form>
+        <label for="id-suppr-etudiant">ID ou Email :</label>
+        <input type="text" id="id-suppr-etudiant" name="id-suppr-etudiant" required>
+        <button type="submit" class="btn">Supprimer l'Étudiant</button>
+      </form>
+    </div>
+
+    <!-- SFx 21 - Consulter les statistiques d'un compte Étudiant -->
+    <div id="statistiques" style="margin-top: 40px;">
+      <h3>Statistiques d'un Étudiant</h3>
+      <form>
+        <label for="id-stat-etudiant">ID ou Email :</label>
+        <input type="text" id="id-stat-etudiant" name="id-stat-etudiant" required>
+        <button type="submit" class="btn">Consulter</button>
+      </form>
+    </div>
+  </section>
+
+  <script src="js/gestion-etudiant.js"></script>
+
+  <footer>
+    <p>Contact : contact@cesitachance.com</p>
+  </footer>
+
+</body>
+
+</html>
