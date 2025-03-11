@@ -4,7 +4,7 @@
 namespace App\Controller;
 
 use App\Controller\BaseController;
-use Database; // Utilisation de la classe Database (sans namespace ici si elle n'est pas placée dans un namespace spécifique)
+use Database; 
 use App\Model\Candidature;
 
 
@@ -43,7 +43,6 @@ class CandidatureController extends BaseController {
         }
         $candidatures = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         
-        // Rendu de la vue avec les candidatures
         $this->render('candidatures/index.php', ['candidatures' => $candidatures]);
     }
 

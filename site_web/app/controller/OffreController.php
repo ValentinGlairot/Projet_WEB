@@ -6,22 +6,25 @@ use App\Controller\BaseController;
 use App\Model\Offre; // ✅ Import du bon modèle
 use Database;
 
-class OffreController extends BaseController {
+class OffreController extends BaseController
+{
 
     private $offreModel;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->offreModel = new Offre(); // ✅ Initialisation du modèle
     }
 
     /**
      * Page de gestion des offres
      */
-    public function gererOffres() {
+    public function gererOffres()
+    {
         session_start();
-        
+
         $pdo = Database::getInstance();
-        
+
         // Récupérer toutes les offres
         $stmt = $pdo->query("SELECT offre.id, offre.titre, offre.remuneration, offre.date_debut, offre.date_fin, entreprise.nom AS entreprise
                              FROM offre
@@ -29,7 +32,7 @@ class OffreController extends BaseController {
                              ORDER BY offre.id DESC");
 
         $offres = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        
+
         // Affichage de la page "Gérer les Offres"
         $this->render('offres/gerer.php', ['offres' => $offres]);
     }
@@ -37,15 +40,16 @@ class OffreController extends BaseController {
     /**
      * Modifier une offre
      */
-    public function modifier($id) {
+    public function modifier($id)
+    {
         session_start();
-    
+
         if (!$id) {
             die("Erreur : ID manquant pour modifier une offre.");
         }
-    
+
         $pdo = \Database::getInstance();
-        
+
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             // Récupérer les nouvelles données du formulaire
             $titre = trim($_POST['titre']);
@@ -53,19 +57,19 @@ class OffreController extends BaseController {
             $remuneration = trim($_POST['remuneration']);
             $date_debut = $_POST['date_debut'];
             $date_fin = $_POST['date_fin'];
-    
+
             // Vérifier que tous les champs sont remplis
             if (empty($titre) || empty($description) || empty($remuneration) || empty($date_debut) || empty($date_fin)) {
                 $_SESSION["error"] = "Tous les champs sont requis.";
                 header("Location: " . BASE_URL . "index.php?controller=offre&action=modifier&id=" . $id);
                 exit;
             }
-    
+
             // Mise à jour en base de données
             try {
                 $stmt = $pdo->prepare("UPDATE offre SET titre = ?, description = ?, remuneration = ?, date_debut = ?, date_fin = ? WHERE id = ?");
                 $stmt->execute([$titre, $description, $remuneration, $date_debut, $date_fin, $id]);
-    
+
                 $_SESSION["success"] = "L'offre a été mise à jour avec succès.";
                 header("Location: " . BASE_URL . "index.php?controller=offre&action=gererOffres");
                 exit;
@@ -75,24 +79,25 @@ class OffreController extends BaseController {
                 exit;
             }
         }
-    
+
         // Si ce n'est pas une requête POST, afficher la page de modification avec l'offre existante
         $stmt = $pdo->prepare("SELECT * FROM offre WHERE id = ?");
         $stmt->execute([$id]);
         $offre = $stmt->fetch(\PDO::FETCH_ASSOC);
-    
+
         if (!$offre) {
             die("Erreur : Offre introuvable.");
         }
-    
+
         $this->render('offres/modifier.php', ['offre' => $offre]);
     }
-    
+
 
     /**
      * Supprimer une offre
      */
-    public function supprimer($id) {
+    public function supprimer($id)
+    {
         if (!$id) {
             die("Erreur : ID manquant pour supprimer une offre.");
         }
@@ -116,7 +121,8 @@ class OffreController extends BaseController {
     /**
      * Liste des offres
      */
-    public function index() {
+    public function index()
+    {
         session_start();
         $pdo = \Database::getInstance();
         $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
@@ -130,24 +136,24 @@ class OffreController extends BaseController {
         $this->render('offres/index.php', ['offres' => $offres, 'page' => $page]);
     }
 
-
-    public function detail($id) {
+    public function detail($id)
+    {
         if (!$id) {
             die("Erreur : ID de l'offre manquant.");
         }
-    
+
         // Charger l'offre depuis la base de données
         $offre = $this->offreModel->findById($id);
         if (!$offre) {
             die("Erreur : Offre introuvable.");
         }
-    
+
         // Affichage de la page de détail
         $this->render('offres/detail.php', ['offre' => $offre]);
     }
-    
 
-    public function create() {
+    public function create()
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $titre = trim($_POST['titre']);
             $description = trim($_POST['description']);
@@ -174,13 +180,14 @@ class OffreController extends BaseController {
         $this->render('offres/create.php');
     }
 
-    public function search() {
+    public function search()
+    {
         session_start();
         $pdo = Database::getInstance();
-    
+
         // Vérifier si un mot-clé est envoyé
         $motcle = isset($_GET['motcle']) ? trim($_GET['motcle']) : '';
-    
+
         if (!empty($motcle)) {
             // Recherche dans les offres par titre ou description
             $stmt = $pdo->prepare("
@@ -202,9 +209,9 @@ class OffreController extends BaseController {
             ");
             $offres = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         }
-    
+
         // Rendu de la vue avec les résultats de recherche
         $this->render('offres/index.php', ['offres' => $offres, 'motcle' => $motcle]);
     }
-    
+
 }

@@ -15,8 +15,7 @@ class BaseController {
         // Extraire les variables pour la vue
         extract($params);
 
-        // Utilisez dirname(__DIR__) pour remonter au dossier "app"
-        // Puis accéder au dossier "views" (avec un "s")
+        // dirname(__DIR__) remonte au dossier "app"
         require_once dirname(__DIR__) . '/views/layout/header.php';
         require_once dirname(__DIR__) . '/views/' . $view;
         require_once dirname(__DIR__) . '/views/layout/footer.php';
