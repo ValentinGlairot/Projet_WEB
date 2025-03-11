@@ -7,14 +7,14 @@ document.addEventListener('DOMContentLoaded', function () {
   fetch('../api/check-session.php')
     .then(response => response.json())
     .then(data => {
-      console.log("Statut de connexion :", data); // Debug dans la console
+      console.log("Statut de connexion :", data);
 
       if (data.logged_in) {
-        if (loginBtn) loginBtn.style.display = "none"; // Cacher "Connexion"
-        if (userIcon) userIcon.style.display = "block"; // Afficher l'icône utilisateur
+        if (loginBtn) loginBtn.style.display = "none";
+        if (userIcon) userIcon.style.display = "block";
       } else {
-        if (userIcon) userIcon.style.display = "none"; // Cacher l'icône utilisateur
-        if (loginBtn) loginBtn.style.display = "block"; // Afficher "Connexion"
+        if (userIcon) userIcon.style.display = "none";
+        if (loginBtn) loginBtn.style.display = "block";
       }
     })
     .catch(error => {
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(data => {
           if (data.success) {
-            window.location.reload(); // Rafraîchir la page après déconnexion
+            window.location.reload();
           } else {
             console.error("Erreur lors de la déconnexion");
           }

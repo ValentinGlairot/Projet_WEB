@@ -11,21 +11,18 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.style.display = 'block';
   }
 
-  // Fonction pour fermer la modal
+  // Fermer la modal
   function closeModal() {
     modal.style.display = 'none';
   }
-
-  // Fermer la modal en cliquant sur le "X"
   modalClose.addEventListener('click', closeModal);
 
   // Fermer la modal si l'utilisateur clique en dehors du contenu
-  window.addEventListener('click', function(event) {
+  window.addEventListener('click', function (event) {
     if (event.target === modal) {
       closeModal();
     }
   });
 
-  // Exposez la fonction openModal pour pouvoir l'appeler depuis d'autres scripts
   window.openModal = openModal;
 });

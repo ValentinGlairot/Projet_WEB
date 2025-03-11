@@ -1,8 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById("contact-form");
 
     if (form) {
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', function (e) {
             e.preventDefault();
 
             // Récupération et vérification des champs obligatoires
@@ -21,16 +21,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Fonction utilitaire pour afficher une notification stylisée
 function showNotification(message, type = "info") {
-    // Supprime toutes les notifications existantes
     document.querySelectorAll(".notification").forEach(notification => notification.remove());
 
     const notification = document.createElement("div");
     notification.className = `notification ${type}`;
     notification.textContent = message;
 
-    // Pour les notifications d'erreur, on positionne le message en haut, centré, comme souhaité
     if (type === "error") {
         notification.style.position = "fixed";
         notification.style.top = "20px";

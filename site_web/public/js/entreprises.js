@@ -10,20 +10,17 @@ document.addEventListener("DOMContentLoaded", function () {
     // Affichage de la notification de recherche
     document.querySelectorAll(".notification.info").forEach(notification => notification.remove());
     const notification = document.createElement("div");
-    // Correction : retirer le point dans le className
     notification.className = "notification info";
     notification.textContent = "🔍 Recherche d'entreprise en cours...";
 
-        // Positionnement de la notification en haut de la page
-        notification.style.position = "fixed";
-        notification.style.top = "130px";
-        notification.style.left = "40%";
-        notification.style.transform = "translateX(-50%)";
-        notification.style.zIndex = "1000";
-    
+    notification.style.position = "fixed";
+    notification.style.top = "130px";
+    notification.style.left = "40%";
+    notification.style.transform = "translateX(-50%)";
+    notification.style.zIndex = "1000";
+
     document.body.appendChild(notification);
 
-    // Suppression automatique de la notification après 3 secondes
     setTimeout(() => {
       notification.remove();
     }, 3000);
@@ -35,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch(`../api/get_entreprises.php?search=${encodeURIComponent(searchValue)}`)
       .then(response => response.json())
       .then(entreprises => {
-        // Réinitialiser le contenu de la liste
         entreprisesList.innerHTML = "";
 
         // S'il n'y a aucun résultat, afficher un message
@@ -72,5 +68,5 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error("Erreur lors du chargement des détails de l'entreprise :", error));
     }
-});
+  });
 });

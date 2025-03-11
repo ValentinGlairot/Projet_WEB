@@ -1,5 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Fonction utilitaire pour afficher une notification stylisée
+document.addEventListener('DOMContentLoaded', function () {
   function showNotification(message, type = "info") {
     document.querySelectorAll(".notification").forEach(notification => notification.remove());
     const notification = document.createElement("div");
@@ -18,70 +17,70 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // CREER
   if (createForm) {
-    createForm.addEventListener('submit', function(e) {
+    createForm.addEventListener('submit', function (e) {
       e.preventDefault();
       const formData = new FormData(createForm);
       fetch("../api/gerer-entreprise.php?action=create", {
         method: "POST",
         body: formData
       })
-      .then(response => response.json())
-      .then(data => {
-        showNotification(data.message, data.success ? "success" : "error");
-        if (data.success) {
-          createForm.reset();
-        }
-      })
-      .catch(error => {
-        console.error("Erreur :", error);
-        showNotification("Une erreur s'est produite.", "error");
-      });
+        .then(response => response.json())
+        .then(data => {
+          showNotification(data.message, data.success ? "success" : "error");
+          if (data.success) {
+            createForm.reset();
+          }
+        })
+        .catch(error => {
+          console.error("Erreur :", error);
+          showNotification("Une erreur s'est produite.", "error");
+        });
     });
   }
 
   // MODIFIER
   if (updateForm) {
-    updateForm.addEventListener('submit', function(e) {
+    updateForm.addEventListener('submit', function (e) {
       e.preventDefault();
       const formData = new FormData(updateForm);
       fetch("../api/gerer-entreprise.php?action=update", {
         method: "POST",
         body: formData
       })
-      .then(response => response.json())
-      .then(data => {
-        showNotification(data.message, data.success ? "success" : "error");
-        if (data.success) {
-          updateForm.reset();
-        }
-      })
-      .catch(error => {
-        console.error("Erreur :", error);
-        showNotification("Une erreur s'est produite.", "error");
-      });
+        .then(response => response.json())
+        .then(data => {
+          showNotification(data.message, data.success ? "success" : "error");
+          if (data.success) {
+            updateForm.reset();
+          }
+        })
+        .catch(error => {
+          console.error("Erreur :", error);
+          showNotification("Une erreur s'est produite.", "error");
+        });
     });
   }
 
   // SUPPRIMER
   if (deleteForm) {
-    deleteForm.addEventListener('submit', function(e) {
+    deleteForm.addEventListener('submit', function (e) {
       e.preventDefault();
       const formData = new FormData(deleteForm);
       fetch("../api/gerer-entreprise.php?action=delete", {
         method: "POST",
         body: formData
       })
-      .then(response => response.json())
-      .then(data => {
-        showNotification(data.message, data.success ? "success" : "error");
-        if (data.success) {
-          deleteForm.reset();
-        }
-      })
-      .catch(error => {
-        console.error("Erreur :", error);
-        showNotification("Une erreur s'est produite.", "error");
-      });
+        .then(response => response.json())
+        .then(data => {
+          showNotification(data.message, data.success ? "success" : "error");
+          if (data.success) {
+            deleteForm.reset();
+          }
+        })
+        .catch(error => {
+          console.error("Erreur :", error);
+          showNotification("Une erreur s'est produite.", "error");
+        });
     });
   }
 });
