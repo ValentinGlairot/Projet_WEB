@@ -20,3 +20,4 @@ abstract class BaseModel
         $this->pdo = Database::getInstance();
     }
 }
+?>

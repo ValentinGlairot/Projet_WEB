@@ -50,3 +50,4 @@ if (class_exists($controllerClass)) {
 } else {
     echo "Contrôleur '$controllerClass' non trouvé.";
 }
+?>
