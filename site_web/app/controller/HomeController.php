@@ -6,12 +6,14 @@ namespace App\Controller;
 use App\Controller\BaseController;
 use Database;
 
-class HomeController extends BaseController {
+class HomeController extends BaseController
+{
 
     /**
      * Affiche la page d'accueil avec les dernières offres.
      */
-    public function index() {
+    public function index()
+    {
         $pdo = \Database::getInstance();
         $stmt = $pdo->query("SELECT offre.id, offre.titre, entreprise.nom AS entreprise 
                              FROM offre 

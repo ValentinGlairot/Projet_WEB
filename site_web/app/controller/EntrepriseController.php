@@ -5,16 +5,19 @@ use App\Controller\BaseController;
 use App\Model\Entreprise;
 use Database;
 
-class EntrepriseController extends BaseController {
+class EntrepriseController extends BaseController
+{
 
-    public function index() {
+    public function index()
+    {
         $pdo = Database::getInstance();
         $stmt = $pdo->query("SELECT * FROM entreprise ORDER BY nom ASC");
         $entreprises = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         $this->render('entreprises/index.php', ['entreprises' => $entreprises]);
     }
 
-    public function details($id) {
+    public function details($id)
+    {
         $pdo = Database::getInstance();
         $stmt = $pdo->prepare("SELECT * FROM entreprise WHERE id = ?");
         $stmt->execute([$id]);
@@ -26,7 +29,8 @@ class EntrepriseController extends BaseController {
         $this->render('entreprises/details.php', ['entreprise' => $entreprise]);
     }
 
-    public function creer() {
+    public function creer()
+    {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $nom = trim($_POST["nom"]);
             $ville = trim($_POST["ville"]);
@@ -45,7 +49,8 @@ class EntrepriseController extends BaseController {
         $this->render('entreprises/gestion.php');
     }
 
-    public function modifier($id) {
+    public function modifier($id)
+    {
         $pdo = Database::getInstance();
         $stmt = $pdo->prepare("SELECT * FROM entreprise WHERE id = ?");
         $stmt->execute([$id]);
@@ -71,7 +76,8 @@ class EntrepriseController extends BaseController {
         $this->render('entreprises/modifier.php', ['entreprise' => $entreprise]);
     }
 
-    public function supprimer() {
+    public function supprimer()
+    {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $id = $_POST["id"];
 

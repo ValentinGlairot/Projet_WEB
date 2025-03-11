@@ -3,22 +3,25 @@ namespace App\Controller;
 
 use Database;
 
-class GestionUtilisateursController extends BaseController {
-    
+class GestionUtilisateursController extends BaseController
+{
+
     // Affichage de la gestion des utilisateurs
-    public function index() {
+    public function index()
+    {
         $pdo = Database::getInstance();
-        
+
         // Récupérer tous les utilisateurs
         $stmt = $pdo->query("SELECT id, nom, prenom, email, role FROM user ORDER BY id DESC");
         $users = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        
+
         // Passer la liste des utilisateurs à la vue
         $this->render('gestion_utilisateurs/index.php', ['users' => $users]);
     }
 
     // Création d'un utilisateur
-    public function create() {
+    public function create()
+    {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $nom = trim($_POST["nom"]);
             $prenom = trim($_POST["prenom"]);
@@ -42,7 +45,8 @@ class GestionUtilisateursController extends BaseController {
     }
 
     // Modification d'un utilisateur
-    public function update() {
+    public function update()
+    {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $id = $_POST["id"];
             $nom = trim($_POST["nom"]) ?? null;
@@ -54,10 +58,22 @@ class GestionUtilisateursController extends BaseController {
             $sql = "UPDATE user SET ";
             $params = [];
 
-            if ($nom) { $sql .= "nom = ?, "; $params[] = $nom; }
-            if ($prenom) { $sql .= "prenom = ?, "; $params[] = $prenom; }
-            if ($email) { $sql .= "email = ?, "; $params[] = $email; }
-            if ($role) { $sql .= "role = ?, "; $params[] = $role; }
+            if ($nom) {
+                $sql .= "nom = ?, ";
+                $params[] = $nom;
+            }
+            if ($prenom) {
+                $sql .= "prenom = ?, ";
+                $params[] = $prenom;
+            }
+            if ($email) {
+                $sql .= "email = ?, ";
+                $params[] = $email;
+            }
+            if ($role) {
+                $sql .= "role = ?, ";
+                $params[] = $role;
+            }
 
             $sql = rtrim($sql, ", ") . " WHERE id = ?";
             $params[] = $id;
@@ -72,7 +88,8 @@ class GestionUtilisateursController extends BaseController {
     }
 
     // Suppression d'un utilisateur
-    public function delete() {
+    public function delete()
+    {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $id = $_POST["id"];
 
@@ -86,10 +103,11 @@ class GestionUtilisateursController extends BaseController {
         }
     }
 
-    public function search() {
+    public function search()
+    {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $searchQuery = trim($_POST["search_query"]);
-    
+
             if (!empty($searchQuery)) {
                 $pdo = Database::getInstance();
                 $stmt = $pdo->prepare("SELECT * FROM user WHERE nom LIKE ? OR prenom LIKE ? OR email LIKE ?");
@@ -98,7 +116,7 @@ class GestionUtilisateursController extends BaseController {
             } else {
                 $search_result = null;
             }
-    
+
             // Récupérer les statistiques des utilisateurs
             $stmtStats = $pdo->query("SELECT 
                 COUNT(*) AS total_users,
@@ -107,12 +125,12 @@ class GestionUtilisateursController extends BaseController {
                 SUM(CASE WHEN role = 'admin' THEN 1 ELSE 0 END) AS total_admins
             FROM user");
             $stats = $stmtStats->fetch(\PDO::FETCH_ASSOC);
-    
+
             $this->render('gestion_utilisateurs/index.php', ['search_result' => $search_result, 'stats' => $stats]);
         }
     }
-    
-    
+
+
 
 }
 ?>
