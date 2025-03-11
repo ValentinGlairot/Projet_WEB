@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 
-// Charger la configuration globale et les classes...
+// Charger la configuration globale plus les classes
 require_once __DIR__ . '/../app/config/config.php';
 require_once __DIR__ . '/../app/config/database.php';
 
@@ -27,19 +27,17 @@ spl_autoload_register(function ($class) {
 $controllerName = isset($_GET['controller']) ? $_GET['controller'] : 'home';
 $actionName = isset($_GET['action']) ? $_GET['action'] : 'index';
 
-// Construire le nom complet du contrôleur
 $controllerClass = 'App\\Controller\\' . ucfirst($controllerName) . 'Controller';
 
 if (class_exists($controllerClass)) {
     $controller = new $controllerClass();
     
     if (method_exists($controller, $actionName)) {
-        // Vérifier si l'action attend un paramètre (ex: id)
         $reflection = new ReflectionMethod($controller, $actionName);
         
         if ($reflection->getNumberOfRequiredParameters() > 0) {
             if (isset($_GET['id'])) {
-                $controller->$actionName($_GET['id']); // ✅ On passe bien l'ID ici
+                $controller->$actionName($_GET['id']); 
             } else {
                 die("Erreur : Paramètre 'id' manquant pour l'action '$actionName'.");
             }
