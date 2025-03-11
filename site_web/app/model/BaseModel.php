@@ -3,10 +3,11 @@
 
 namespace App\Model;
 
-use \Database; // Accès à la classe Database dans le namespace global
+use \Database;
 use PDO;
 
-abstract class BaseModel {
+abstract class BaseModel
+{
     /**
      * Instance PDO pour l'accès à la base de données.
      *
@@ -14,7 +15,8 @@ abstract class BaseModel {
      */
     protected $pdo;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->pdo = Database::getInstance();
     }
 }

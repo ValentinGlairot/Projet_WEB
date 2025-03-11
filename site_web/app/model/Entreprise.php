@@ -3,14 +3,16 @@
 
 namespace App\Model;
 
-class Entreprise extends BaseModel {
+class Entreprise extends BaseModel
+{
     public $id;
     public $nom;
     public $secteur;
     public $ville;
     public $taille;
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
     }
 
@@ -20,7 +22,8 @@ class Entreprise extends BaseModel {
      * @param int $id
      * @return array|false
      */
-    public static function findById($id) {
+    public static function findById($id)
+    {
         $pdo = \Database::getInstance();
         $stmt = $pdo->prepare("SELECT * FROM entreprise WHERE id = ?");
         $stmt->execute([$id]);
@@ -32,7 +35,8 @@ class Entreprise extends BaseModel {
      *
      * @return bool
      */
-    public function save() {
+    public function save()
+    {
         if (isset($this->id)) {
             $stmt = $this->pdo->prepare("UPDATE entreprise SET nom = ?, secteur = ?, ville = ?, taille = ? WHERE id = ?");
             return $stmt->execute([$this->nom, $this->secteur, $this->ville, $this->taille, $this->id]);

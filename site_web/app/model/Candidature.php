@@ -3,14 +3,16 @@
 
 namespace App\Model;
 
-class Candidature extends BaseModel {
+class Candidature extends BaseModel
+{
     public $id;
     public $user_id;
     public $offre_id;
     public $date_soumission;
     public $statut;
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
     }
 
@@ -20,7 +22,8 @@ class Candidature extends BaseModel {
      * @param int $user_id
      * @return array
      */
-    public static function findByUserId($user_id) {
+    public static function findByUserId($user_id)
+    {
         $pdo = \Database::getInstance();
         $stmt = $pdo->prepare("SELECT * FROM candidature WHERE user_id = ?");
         $stmt->execute([$user_id]);
@@ -32,7 +35,8 @@ class Candidature extends BaseModel {
      *
      * @return bool
      */
-    public function save() {
+    public function save()
+    {
         if (isset($this->id)) {
             // Mise à jour
             $stmt = $this->pdo->prepare("UPDATE candidature SET user_id = ?, offre_id = ?, date_soumission = ?, statut = ? WHERE id = ?");

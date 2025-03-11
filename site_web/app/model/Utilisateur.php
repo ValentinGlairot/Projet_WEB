@@ -3,7 +3,8 @@
 
 namespace App\Model;
 
-class Utilisateur extends BaseModel {
+class Utilisateur extends BaseModel
+{
     public $id;
     public $nom;
     public $prenom;
@@ -11,7 +12,8 @@ class Utilisateur extends BaseModel {
     public $role;
     public $password_hash;
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
     }
 
@@ -21,7 +23,8 @@ class Utilisateur extends BaseModel {
      * @param string $email
      * @return array|false
      */
-    public static function findByEmail($email) {
+    public static function findByEmail($email)
+    {
         $pdo = \Database::getInstance();
         $stmt = $pdo->prepare("SELECT * FROM user WHERE email = ?");
         $stmt->execute([$email]);
@@ -33,7 +36,8 @@ class Utilisateur extends BaseModel {
      *
      * @return bool
      */
-    public function save() {
+    public function save()
+    {
         if (isset($this->id)) {
             $stmt = $this->pdo->prepare("UPDATE user SET nom = ?, prenom = ?, email = ?, role = ?, password_hash = ? WHERE id = ?");
             return $stmt->execute([$this->nom, $this->prenom, $this->email, $this->role, $this->password_hash, $this->id]);
