@@ -3,11 +3,13 @@
 
 namespace App\Controller;
 
-class BaseController {
+class BaseController
+{
     /**
      * Méthode de rendu de la vue.
      */
-    protected function render($view, $params = []) {
+    protected function render($view, $params = [])
+    {
         // Extraire les variables pour la vue
         extract($params);
 
@@ -16,3 +18,4 @@ class BaseController {
         require_once dirname(__DIR__) . '/views/layout/footer.php';
     }
 }
+?>

@@ -7,8 +7,7 @@ use Database;
 class GestionUtilisateursController extends BaseController
 {
     /**
-     * Affichage de la gestion des utilisateurs, avec pagination
-     * => réservé à l'admin
+     * Affichage de la gestion des utilisateurs, avec pagination => réservé à l'admin
      */
     public function index()
     {
@@ -21,7 +20,7 @@ class GestionUtilisateursController extends BaseController
         $pdo = Database::getInstance();
 
         // Pagination
-        $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+        $page = isset($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
         $limit = 10;
         $offset = ($page - 1) * $limit;
 
@@ -60,8 +59,7 @@ class GestionUtilisateursController extends BaseController
     }
 
     /**
-     * Création d'un utilisateur
-     * => réservé admin
+     * Création d'un utilisateur => réservé admin
      */
     public function create()
     {
@@ -97,8 +95,7 @@ class GestionUtilisateursController extends BaseController
     }
 
     /**
-     * Modification d'un utilisateur
-     * => réservé admin
+     * Modification d'un utilisateur => réservé admin
      */
     public function update()
     {
@@ -149,8 +146,7 @@ class GestionUtilisateursController extends BaseController
     }
 
     /**
-     * Suppression d'un utilisateur
-     * => réservé admin
+     * Suppression d'un utilisateur => réservé admin
      */
     public function delete()
     {
@@ -174,8 +170,7 @@ class GestionUtilisateursController extends BaseController
     }
 
     /**
-     * Recherche d'un utilisateur
-     * => réservé admin
+     * Recherche d'un utilisateur => réservé admin
      */
     public function search()
     {
@@ -222,14 +217,15 @@ class GestionUtilisateursController extends BaseController
     }
 
     /**
-     * SFx21 – Consulter les statistiques d’un compte Étudiant
-     * => admin ou pilote
+     * SFx21 – Consulter les statistiques d’un compte Étudiant => admin ou pilote
      */
     public function statsEtudiant($id)
     {
         session_start();
-        if (!isset($_SESSION['user']) 
-            || !in_array($_SESSION['user']['role'], ['Admin','pilote'])) {
+        if (
+            !isset($_SESSION['user'])
+            || !in_array($_SESSION['user']['role'], ['Admin', 'pilote'])
+        ) {
             header("Location: " . BASE_URL . "index.php?controller=home&action=index");
             exit;
         }
@@ -272,3 +268,4 @@ class GestionUtilisateursController extends BaseController
         ]);
     }
 }
+?>

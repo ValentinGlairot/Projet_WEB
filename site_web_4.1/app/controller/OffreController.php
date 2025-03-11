@@ -17,11 +17,11 @@ class OffreController extends BaseController
 
     /**
      * Liste des offres avec pagination et recherche multi-critères
-     * => libre ou nécessite connexion, selon vos choix
+     * => libre ou nécessite connexion, selon les choix
      */
     public function index()
     {
-        session_start(); // optionnel
+        session_start();
 
         $pdo = Database::getInstance();
 
@@ -30,7 +30,7 @@ class OffreController extends BaseController
         $filtreCompetences = isset($_GET['competences']) ? trim($_GET['competences']) : '';
 
         // Pagination
-        $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+        $page = isset($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
         $limit = 10;
         $offset = ($page - 1) * $limit;
 
@@ -94,14 +94,15 @@ class OffreController extends BaseController
     }
 
     /**
-     * Page d'administration : gérer toutes les offres
-     * => réservé admin/pilote
+     * Page d'administration : gérer toutes les offres => réservé admin/pilote
      */
     public function gererOffres()
     {
         session_start();
-        if (!isset($_SESSION['user']) 
-            || !in_array($_SESSION['user']['role'], ['Admin','pilote'])) {
+        if (
+            !isset($_SESSION['user'])
+            || !in_array($_SESSION['user']['role'], ['Admin', 'pilote'])
+        ) {
             header("Location: " . BASE_URL . "index.php?controller=home&action=index");
             exit;
         }
@@ -120,7 +121,7 @@ class OffreController extends BaseController
     }
 
     /**
-     * Détail d’une offre (accessible à tous loggués ou non ?)
+     * Détail d’une offre (accessible à tous loggués ou non)
      */
     public function detail($id)
     {
@@ -136,14 +137,15 @@ class OffreController extends BaseController
     }
 
     /**
-     * Créer une nouvelle offre
-     * => réservé admin/pilote
+     * Créer une nouvelle offre => réservé admin/pilote
      */
     public function create()
     {
         session_start();
-        if (!isset($_SESSION['user']) 
-            || !in_array($_SESSION['user']['role'], ['Admin','pilote'])) {
+        if (
+            !isset($_SESSION['user'])
+            || !in_array($_SESSION['user']['role'], ['Admin', 'pilote'])
+        ) {
             header("Location: " . BASE_URL . "index.php?controller=home&action=index");
             exit;
         }
@@ -181,14 +183,15 @@ class OffreController extends BaseController
     }
 
     /**
-     * Modifier une offre
-     * => réservé admin/pilote
+     * Modifier une offre => réservé admin/pilote
      */
     public function modifier($id)
     {
         session_start();
-        if (!isset($_SESSION['user']) 
-            || !in_array($_SESSION['user']['role'], ['Admin','pilote'])) {
+        if (
+            !isset($_SESSION['user'])
+            || !in_array($_SESSION['user']['role'], ['Admin', 'pilote'])
+        ) {
             header("Location: " . BASE_URL . "index.php?controller=home&action=index");
             exit;
         }
@@ -207,8 +210,10 @@ class OffreController extends BaseController
             $date_fin = $_POST['date_fin'];
             $competences = trim($_POST['competences'] ?? '');
 
-            if (empty($titre) || empty($description) || empty($remuneration) ||
-                empty($date_debut) || empty($date_fin)) {
+            if (
+                empty($titre) || empty($description) || empty($remuneration) ||
+                empty($date_debut) || empty($date_fin)
+            ) {
                 $_SESSION["error"] = "Tous les champs sont requis.";
                 header("Location: " . BASE_URL . "index.php?controller=offre&action=modifier&id=" . $id);
                 exit;
@@ -222,8 +227,13 @@ class OffreController extends BaseController
                     WHERE id = ?
                 ");
                 $stmt->execute([
-                    $titre, $description, $remuneration,
-                    $date_debut, $date_fin, $competences, $id
+                    $titre,
+                    $description,
+                    $remuneration,
+                    $date_debut,
+                    $date_fin,
+                    $competences,
+                    $id
                 ]);
 
                 $_SESSION["success"] = "L'offre a été mise à jour avec succès.";
@@ -236,7 +246,7 @@ class OffreController extends BaseController
             }
         }
 
-        // Récup l'offre existante
+        // Récupérer l'offre existante
         $stmt = $pdo->prepare("SELECT * FROM offre WHERE id = ?");
         $stmt->execute([$id]);
         $offre = $stmt->fetch(\PDO::FETCH_ASSOC);
@@ -249,14 +259,15 @@ class OffreController extends BaseController
     }
 
     /**
-     * Supprimer une offre
-     * => réservé admin/pilote
+     * Supprimer une offre => réservé admin/pilote
      */
     public function supprimer($id)
     {
         session_start();
-        if (!isset($_SESSION['user']) 
-            || !in_array($_SESSION['user']['role'], ['Admin','pilote'])) {
+        if (
+            !isset($_SESSION['user'])
+            || !in_array($_SESSION['user']['role'], ['Admin', 'pilote'])
+        ) {
             header("Location: " . BASE_URL . "index.php?controller=home&action=index");
             exit;
         }
@@ -318,3 +329,4 @@ class OffreController extends BaseController
         ]);
     }
 }
+?>

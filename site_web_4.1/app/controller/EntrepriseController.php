@@ -29,7 +29,7 @@ class EntrepriseController extends BaseController
         $secteur = isset($_GET['secteur']) ? trim($_GET['secteur']) : '';
 
         // Pagination
-        $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+        $page = isset($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
         $limit = 10;
         $offset = ($page - 1) * $limit;
 
@@ -50,7 +50,7 @@ class EntrepriseController extends BaseController
         }
 
         // Count
-        $sqlCount = "SELECT COUNT(*) as total FROM entreprise ".$sqlFilter;
+        $sqlCount = "SELECT COUNT(*) as total FROM entreprise " . $sqlFilter;
         $stmtCount = $pdo->prepare($sqlCount);
         $stmtCount->execute($params);
         $rowCount = $stmtCount->fetch();
@@ -58,7 +58,7 @@ class EntrepriseController extends BaseController
 
         // Data
         $sqlData = "SELECT * FROM entreprise
-                    ".$sqlFilter." ORDER BY nom ASC
+                    " . $sqlFilter . " ORDER BY nom ASC
                     LIMIT ? OFFSET ?";
         $stmtData = $pdo->prepare($sqlData);
 
@@ -89,7 +89,7 @@ class EntrepriseController extends BaseController
 
     /**
      * Affiche les détails d'une entreprise + nb_stagiaires & moyenne_eval
-     * => accessible à tout utilisateur (voire public).
+     * => accessible à tout utilisateur.
      */
     public function details($id)
     {
@@ -123,36 +123,37 @@ class EntrepriseController extends BaseController
     }
 
     /**
-     * Créer une entreprise
-     * => réservé admin/pilote
+     * Créer une entreprise => réservé admin/pilote
      */
     public function creer()
     {
         session_start();
-        if (!isset($_SESSION['user']) 
-            || !in_array($_SESSION['user']['role'], ['Admin','pilote'])) {
+        if (
+            !isset($_SESSION['user'])
+            || !in_array($_SESSION['user']['role'], ['Admin', 'pilote'])
+        ) {
             header("Location: " . BASE_URL . "index.php?controller=home&action=index");
             exit;
         }
 
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $nom         = trim($_POST["nom"]);
-            $ville       = trim($_POST["ville"]);
-            $secteur     = trim($_POST["secteur"]);
-            $taille      = trim($_POST["taille"]);
+            $nom = trim($_POST["nom"]);
+            $ville = trim($_POST["ville"]);
+            $secteur = trim($_POST["secteur"]);
+            $taille = trim($_POST["taille"]);
             $description = trim($_POST["description"]);
-            $email       = trim($_POST["email"]);
-            $telephone   = trim($_POST["telephone"]);
+            $email = trim($_POST["email"]);
+            $telephone = trim($_POST["telephone"]);
 
             if (!empty($nom) && !empty($ville) && !empty($secteur) && !empty($taille)) {
                 $entreprise = new Entreprise();
-                $entreprise->nom         = $nom;
-                $entreprise->ville       = $ville;
-                $entreprise->secteur     = $secteur;
-                $entreprise->taille      = $taille;
+                $entreprise->nom = $nom;
+                $entreprise->ville = $ville;
+                $entreprise->secteur = $secteur;
+                $entreprise->taille = $taille;
                 $entreprise->description = $description;
-                $entreprise->email       = $email;
-                $entreprise->telephone   = $telephone;
+                $entreprise->email = $email;
+                $entreprise->telephone = $telephone;
                 $entreprise->save();
 
                 header("Location: " . BASE_URL . "index.php?controller=entreprise&action=index");
@@ -166,14 +167,15 @@ class EntrepriseController extends BaseController
     }
 
     /**
-     * Modifier une entreprise
-     * => réservé admin/pilote
+     * Modifier une entreprise => réservé admin/pilote
      */
     public function modifier($id)
     {
         session_start();
-        if (!isset($_SESSION['user']) 
-            || !in_array($_SESSION['user']['role'], ['Admin','pilote'])) {
+        if (
+            !isset($_SESSION['user'])
+            || !in_array($_SESSION['user']['role'], ['Admin', 'pilote'])
+        ) {
             header("Location: " . BASE_URL . "index.php?controller=home&action=index");
             exit;
         }
@@ -188,13 +190,13 @@ class EntrepriseController extends BaseController
         }
 
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $nom         = trim($_POST["nom"]);
-            $ville       = trim($_POST["ville"]);
-            $secteur     = trim($_POST["secteur"]);
-            $taille      = trim($_POST["taille"]);
+            $nom = trim($_POST["nom"]);
+            $ville = trim($_POST["ville"]);
+            $secteur = trim($_POST["secteur"]);
+            $taille = trim($_POST["taille"]);
             $description = trim($_POST["description"]);
-            $email       = trim($_POST["email"]);
-            $telephone   = trim($_POST["telephone"]);
+            $email = trim($_POST["email"]);
+            $telephone = trim($_POST["telephone"]);
 
             $stmt = $pdo->prepare("
                 UPDATE entreprise
@@ -223,14 +225,15 @@ class EntrepriseController extends BaseController
     }
 
     /**
-     * Supprimer une entreprise
-     * => réservé admin/pilote
+     * Supprimer une entreprise => réservé admin/pilote
      */
     public function supprimer()
     {
         session_start();
-        if (!isset($_SESSION['user']) 
-            || !in_array($_SESSION['user']['role'], ['Admin','pilote'])) {
+        if (
+            !isset($_SESSION['user'])
+            || !in_array($_SESSION['user']['role'], ['Admin', 'pilote'])
+        ) {
             header("Location: " . BASE_URL . "index.php?controller=home&action=index");
             exit;
         }
@@ -248,15 +251,16 @@ class EntrepriseController extends BaseController
     }
 
     /**
-     * Évaluer une entreprise
-     * => accessible aux étudiants ?
-     *   Ici, je mets tout user loggué, ou spécifiquement 'etudiant'.
+     * Évaluer une entreprise => accessible aux étudiants ?
+     *   Ici,  tout user loggué, ou spécifiquement 'etudiant'.
      */
     public function evaluer($id)
     {
         session_start();
-        if (!isset($_SESSION['user']) 
-            || $_SESSION['user']['role'] !== 'etudiant') {
+        if (
+            !isset($_SESSION['user'])
+            || $_SESSION['user']['role'] !== 'etudiant'
+        ) {
             header("Location: " . BASE_URL . "index.php?controller=home&action=index");
             exit;
         }
@@ -292,3 +296,4 @@ class EntrepriseController extends BaseController
         ]);
     }
 }
+?>

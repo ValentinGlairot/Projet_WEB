@@ -4,19 +4,22 @@ namespace App\Controller;
 use App\Controller\BaseController;
 use Database;
 
-class DashboardController extends BaseController {
+class DashboardController extends BaseController
+{
 
     /**
-     * - On décide que le dashboard principal est réservé
-     *   aux utilisateurs connectés (admin ou pilote ?).
+     * - On décide que le dashboard principal est réservé aux utilisateurs connectés (admin ou pilote ?).
      */
-    public function index() {
+    public function index()
+    {
         session_start();
 
         // Soit on laisse tout user => false,
         // Soit admin/pilote => ci-dessous :
-        if (!isset($_SESSION['user']) 
-            || !in_array($_SESSION['user']['role'], ['Admin','pilote'])) {
+        if (
+            !isset($_SESSION['user'])
+            || !in_array($_SESSION['user']['role'], ['Admin', 'pilote'])
+        ) {
             header("Location: " . BASE_URL . "index.php?controller=home&action=index");
             exit;
         }
@@ -24,12 +27,14 @@ class DashboardController extends BaseController {
         $this->render('dashboard/index.php', ['user' => $_SESSION['user']]);
     }
 
-    // Statistiques sur les offres
-    // -> réservé admin/pilote
-    public function offerStats() {
+    // Statistiques sur les offres -> réservé admin/pilote
+    public function offerStats()
+    {
         session_start();
-        if (!isset($_SESSION['user']) 
-            || !in_array($_SESSION['user']['role'], ['Admin','pilote'])) {
+        if (
+            !isset($_SESSION['user'])
+            || !in_array($_SESSION['user']['role'], ['Admin', 'pilote'])
+        ) {
             header("Location: " . BASE_URL . "index.php?controller=home&action=index");
             exit;
         }
@@ -52,7 +57,7 @@ class DashboardController extends BaseController {
         ");
         $stats['top_wishlist'] = $stmtTopWishlist->fetchAll(\PDO::FETCH_ASSOC);
 
-        // Répartition par durée (exemple)
+        // Répartition par durée
         $stmtDuree = $pdo->query("
             SELECT DATEDIFF(date_fin, date_debut) as duree, COUNT(*) as nb
             FROM offre
