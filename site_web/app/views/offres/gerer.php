@@ -24,8 +24,10 @@
           <td><?= htmlspecialchars($offre['date_fin']) ?></td>
           <td>
             <div class='offer-buttons'>
-            <a href="<?= BASE_URL ?>index.php?controller=offre&action=modifier&id=<?= $offre['id'] ?>" class="btn-modifier">Modifier</a>
-            <a href="<?= BASE_URL ?>index.php?controller=offre&action=supprimer&id=<?= $offre['id'] ?>" class='btn-supprimer'>Supprimer</a>
+              <a href="<?= BASE_URL ?>index.php?controller=offre&action=modifier&id=<?= $offre['id'] ?>"
+                class="btn-modifier">Modifier</a>
+              <a href="<?= BASE_URL ?>index.php?controller=offre&action=supprimer&id=<?= $offre['id'] ?>"
+                class='btn-supprimer'>Supprimer</a>
             </div>
 
           </td>

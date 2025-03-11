@@ -19,7 +19,8 @@
         <textarea id="description" name="description" required><?= htmlspecialchars($offre['description']) ?></textarea>
 
         <label for="remuneration">Rémunération :</label>
-        <input type="number" id="remuneration" name="remuneration" value="<?= htmlspecialchars($offre['remuneration']) ?>" required>
+        <input type="number" id="remuneration" name="remuneration"
+            value="<?= htmlspecialchars($offre['remuneration']) ?>" required>
 
         <label for="date_debut">Date de début :</label>
         <input type="date" id="date_debut" name="date_debut" value="<?= $offre['date_debut'] ?>" required>

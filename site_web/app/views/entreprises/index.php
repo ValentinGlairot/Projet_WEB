@@ -16,11 +16,15 @@
                         <td><?= htmlspecialchars($entreprise['nom']) ?></td>
                         <td><?= htmlspecialchars($entreprise['ville']) ?></td>
                         <td>
-                            <a href="<?= BASE_URL ?>index.php?controller=entreprise&action=details&id=<?= $entreprise['id'] ?>" class="btn-voir">Détails</a>
-                            <a href="<?= BASE_URL ?>index.php?controller=entreprise&action=modifier&id=<?= $entreprise['id'] ?>" class="btn-modifier">Modifier</a>
-                            <form action="<?= BASE_URL ?>index.php?controller=entreprise&action=supprimer" method="POST" style="display:inline;">
+                            <a href="<?= BASE_URL ?>index.php?controller=entreprise&action=details&id=<?= $entreprise['id'] ?>"
+                                class="btn-voir">Détails</a>
+                            <a href="<?= BASE_URL ?>index.php?controller=entreprise&action=modifier&id=<?= $entreprise['id'] ?>"
+                                class="btn-modifier">Modifier</a>
+                            <form action="<?= BASE_URL ?>index.php?controller=entreprise&action=supprimer" method="POST"
+                                style="display:inline;">
                                 <input type="hidden" name="id" value="<?= $entreprise['id'] ?>">
-                                <button type="submit" class="btn-supprimer" onclick="return confirm('Voulez-vous vraiment supprimer cette entreprise ?')">Supprimer</button>
+                                <button type="submit" class="btn-supprimer"
+                                    onclick="return confirm('Voulez-vous vraiment supprimer cette entreprise ?')">Supprimer</button>
                             </form>
                         </td>
                     </tr>
@@ -35,7 +39,7 @@
     <form action="<?= BASE_URL ?>index.php?controller=entreprise&action=creer" method="POST">
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" required>
-        
+
         <label for="ville">Ville :</label>
         <input type="text" id="ville" name="ville" required>
 

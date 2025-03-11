@@ -13,19 +13,19 @@
         </ul>
     </div>
 
-    <!-- 📌 Recherche d'un utilisateur -->
+    <!-- Recherche d'un utilisateur -->
     <div id="recherche" style="margin-top: 40px;">
         <h3>Rechercher un Utilisateur</h3>
         <form action="<?= BASE_URL ?>index.php?controller=gestionutilisateurs&action=search" method="POST">
             <label for="search-user">Nom, Prénom ou Email :</label>
             <input type="text" id="search-user" name="search_query" required>
             <button type="submit" class="btn">Rechercher</button>
-            </form>
+        </form>
     </div>
 
     <hr>
 
-    <!-- 📌 Affichage des résultats de la recherche -->
+    <!-- Affichage des résultats de la recherche -->
     <?php if (isset($search_result) && !empty($search_result)): ?>
         <div id="resultat">
             <h3>Résultat de la recherche :</h3>
@@ -55,12 +55,13 @@
                 </select>
 
                 <button type="submit" class="btn">Modifier</button>
-                </form>
+            </form>
 
             <h3>Supprimer cet utilisateur</h3>
             <form action="<?= BASE_URL ?>index.php?controller=gestionutilisateurs&action=delete" method="POST">
                 <input type="hidden" name="id" value="<?= $search_result['id'] ?>">
-                <button type="submit" class="btn" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')">Supprimer</button>
+                <button type="submit" class="btn"
+                    onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')">Supprimer</button>
             </form>
         </div>
     <?php elseif (isset($search_result) && empty($search_result)): ?>
@@ -69,7 +70,7 @@
 
     <hr>
 
-    <!-- 📌 Créer un utilisateur -->
+    <!-- Créer un utilisateur -->
     <div id="creer" style="margin-top: 40px;">
         <h3>Créer un Utilisateur</h3>
         <form action="<?= BASE_URL ?>index.php?controller=gestionutilisateurs&action=create" method="POST">
@@ -96,7 +97,7 @@
         </form>
     </div>
 
-    <!-- 📌 Statistiques -->
+    <!-- Statistiques -->
     <div id="statistiques" style="margin-top: 40px;">
         <h3>Statistiques</h3>
         <p>Nombre total d'utilisateurs : <?= $stats['total_users'] ?? 'N/A' ?></p>

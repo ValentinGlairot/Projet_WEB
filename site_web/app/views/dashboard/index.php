@@ -14,7 +14,7 @@ $user = $_SESSION['user'];
 
 <main class="content">
     <h2>Dashboard</h2>
-    
+
     <!-- Ajout du message de bienvenue -->
     <?php if (isset($_SESSION['user'])): ?>
         <p class="welcome-message">Bonjour, <?= htmlspecialchars($_SESSION['user']['prenom']) ?> !</p>
@@ -22,7 +22,8 @@ $user = $_SESSION['user'];
 
     <div class="dashboard-actions">
         <ul>
-            <li><a href="<?= BASE_URL ?>index.php?controller=gestionutilisateurs&action=index">Gérer les utilisateurs</a></li>
+            <li><a href="<?= BASE_URL ?>index.php?controller=gestionutilisateurs&action=index">Gérer les
+                    utilisateurs</a></li>
             <li><a href="<?= BASE_URL ?>index.php?controller=offre&action=gererOffres">Gérer les Offres</a></li>
             <li><a href="<?= BASE_URL ?>index.php?controller=offre&action=index">Voir les offres de stage</a></li>
         </ul>

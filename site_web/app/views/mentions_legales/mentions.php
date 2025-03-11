@@ -12,7 +12,9 @@
     <p><strong>Adresse :</strong> 2 Rue Kellermann, 59100 Roubaix, France</p>
     <p><strong>Téléphone :</strong> +33 9 72 10 10 07</p>
     <h3>Propriété intellectuelle</h3>
-    <p>Tous les contenus présents sur ce site (textes, images, logos, vidéos, etc.) sont protégés par la législation sur la propriété intellectuelle. Toute reproduction, même partielle, est interdite sans autorisation expresse.</p>
+    <p>Tous les contenus présents sur ce site (textes, images, logos, vidéos, etc.) sont protégés par la législation sur
+        la propriété intellectuelle. Toute reproduction, même partielle, est interdite sans autorisation expresse.</p>
     <h3>Responsabilité</h3>
-    <p>CESI Ta Chance ne saurait être tenu responsable de l’utilisation du site par les utilisateurs ni des éventuels dommages résultant de son accès.</p>
+    <p>CESI Ta Chance ne saurait être tenu responsable de l’utilisation du site par les utilisateurs ni des éventuels
+        dommages résultant de son accès.</p>
 </section>

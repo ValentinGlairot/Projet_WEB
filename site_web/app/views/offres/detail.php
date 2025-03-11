@@ -2,16 +2,19 @@
     <h2>Détail de l'offre</h2>
 
     <h3>
-        <?= isset($offre['titre']) ? htmlspecialchars($offre['titre']) : 'Titre indisponible' ?> - 
+        <?= isset($offre['titre']) ? htmlspecialchars($offre['titre']) : 'Titre indisponible' ?> -
         <?= isset($offre['entreprise']) ? htmlspecialchars($offre['entreprise']) : 'Entreprise inconnue' ?>
     </h3>
 
-    <p><strong>Rémunération :</strong> <?= isset($offre['remuneration']) ? htmlspecialchars($offre['remuneration']) . '€' : 'Non précisée' ?></p>
-    <p><strong>Date de début :</strong> <?= isset($offre['date_debut']) ? htmlspecialchars($offre['date_debut']) : 'Non précisée' ?></p>
-    <p><strong>Date de fin :</strong> <?= isset($offre['date_fin']) ? htmlspecialchars($offre['date_fin']) : 'Non précisée' ?></p>
-    <p><strong>Description :</strong> <?= isset($offre['description']) ? nl2br(htmlspecialchars($offre['description'])) : 'Aucune description' ?></p>
+    <p><strong>Rémunération :</strong>
+        <?= isset($offre['remuneration']) ? htmlspecialchars($offre['remuneration']) . '€' : 'Non précisée' ?></p>
+    <p><strong>Date de début :</strong>
+        <?= isset($offre['date_debut']) ? htmlspecialchars($offre['date_debut']) : 'Non précisée' ?></p>
+    <p><strong>Date de fin :</strong>
+        <?= isset($offre['date_fin']) ? htmlspecialchars($offre['date_fin']) : 'Non précisée' ?></p>
+    <p><strong>Description :</strong>
+        <?= isset($offre['description']) ? nl2br(htmlspecialchars($offre['description'])) : 'Aucune description' ?></p>
 
-    <!-- ✅ Conteneur des Boutons -->
     <div class="offer-buttons">
         <form action="<?= BASE_URL ?>index.php?controller=wishlist&action=add" method="POST" style="display:inline;">
             <input type="hidden" name="offre_id" value="<?= $offre['id'] ?>">
@@ -19,11 +22,12 @@
         </form>
     </div>
 
-    <!-- ✅ Formulaire de Candidature -->
+    <!-- Formulaire de Candidature -->
     <h3>Postuler</h3>
-    <form method="POST" action="<?= BASE_URL ?>index.php?controller=candidature&action=postuler" enctype="multipart/form-data">
+    <form method="POST" action="<?= BASE_URL ?>index.php?controller=candidature&action=postuler"
+        enctype="multipart/form-data">
         <input type="hidden" name="offre_id" value="<?= $offre['id'] ?>">
-        
+
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" required>
 
@@ -39,7 +43,6 @@
         <button type="submit" class="btn">Envoyer ma candidature</button>
     </form>
 
-    <!-- ✅ Bouton Retour aux Offres bien en bas à gauche -->
     <div class="back-button-container">
         <a href="<?= BASE_URL ?>index.php?controller=offre&action=index" class="btn btn-back">⬅ Retour aux offres</a>
     </div>

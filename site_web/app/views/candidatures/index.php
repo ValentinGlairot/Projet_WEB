@@ -13,8 +13,8 @@
             <?php if (!empty($candidatures)): ?>
                 <?php foreach ($candidatures as $candidature): ?>
                     <?php
-                        $statut_class = ($candidature['statut'] == 1) ? "accepted" : "pending";
-                        $statut_label = ($candidature['statut'] == 1) ? "Acceptée" : "En attente";
+                    $statut_class = ($candidature['statut'] == 1) ? "accepted" : "pending";
+                    $statut_label = ($candidature['statut'] == 1) ? "Acceptée" : "En attente";
                     ?>
                     <tr>
                         <td><?= htmlspecialchars($candidature['entreprise']) ?></td>

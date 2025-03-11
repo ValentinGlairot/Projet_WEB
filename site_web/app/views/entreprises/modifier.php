@@ -1,6 +1,7 @@
 <section class="content">
     <h3>Modifier une Entreprise</h3>
-    <form action="<?= BASE_URL ?>index.php?controller=entreprise&action=modifier&id=<?= $entreprise['id'] ?>" method="POST">
+    <form action="<?= BASE_URL ?>index.php?controller=entreprise&action=modifier&id=<?= $entreprise['id'] ?>"
+        method="POST">
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" value="<?= htmlspecialchars($entreprise['nom']) ?>" required>
 
