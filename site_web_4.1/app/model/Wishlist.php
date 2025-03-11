@@ -3,12 +3,14 @@
 
 namespace App\Model;
 
-class Wishlist extends BaseModel {
+class Wishlist extends BaseModel
+{
     public $id;
     public $user_id;
     public $offre_id;
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
     }
 
@@ -18,7 +20,8 @@ class Wishlist extends BaseModel {
      * @param int $user_id
      * @return array
      */
-    public static function findByUserId($user_id) {
+    public static function findByUserId($user_id)
+    {
         $pdo = \Database::getInstance();
         $stmt = $pdo->prepare("SELECT * FROM wishlist WHERE user_id = ?");
         $stmt->execute([$user_id]);
@@ -30,7 +33,8 @@ class Wishlist extends BaseModel {
      *
      * @return bool
      */
-    public function save() {
+    public function save()
+    {
         if (isset($this->id)) {
             $stmt = $this->pdo->prepare("UPDATE wishlist SET user_id = ?, offre_id = ? WHERE id = ?");
             return $stmt->execute([$this->user_id, $this->offre_id, $this->id]);
@@ -44,3 +48,4 @@ class Wishlist extends BaseModel {
         }
     }
 }
+?>

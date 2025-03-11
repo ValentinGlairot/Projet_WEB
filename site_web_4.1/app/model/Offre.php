@@ -8,7 +8,7 @@ class Offre extends BaseModel
     public $id;
     public $titre;
     public $description;
-    public $duree; // non indispensable si vous calculez DATEDIFF
+    public $duree;
     public $remuneration;
     public $entreprise_id;
     public $date_debut;
@@ -74,7 +74,7 @@ class Offre extends BaseModel
             $result = $stmt->execute([
                 $this->titre,
                 $this->description,
-                $this->date_fin, // pour DATEDIFF
+                $this->date_fin,
                 $this->date_debut,
                 $this->remuneration,
                 $this->entreprise_id,
@@ -110,3 +110,4 @@ class Offre extends BaseModel
         }
     }
 }
+?>
