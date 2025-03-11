@@ -1,3 +1,6 @@
+/* ============================= */
+/* GLOBAL & BASE                */
+/* ============================= */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 * {
@@ -8,14 +11,16 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #FFF9E6; /* Jaune très clair */
+  background-color: #FFF9E6;
   color: #333;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* HEADER */
+/* ============================= */
+/* HEADER & NAVBAR              */
+/* ============================= */
 header {
   background-color: #FFCC00;
   padding: 20px;
@@ -35,6 +40,7 @@ header {
   margin: 0;
 }
 
+/* Navigation principale */
 nav {
   display: flex;
   gap: 15px;
@@ -56,6 +62,7 @@ nav a:hover {
   color: white;
 }
 
+/* Bouton de connexion */
 .btn-login {
   background-color: #FFA07A;
   color: white;
@@ -70,7 +77,9 @@ nav a:hover {
   background-color: #FF6347;
 }
 
-/* HERO */
+/* ============================= */
+/* HERO SECTION                 */
+/* ============================= */
 .hero {
   width: 100%;
   height: 300px;
@@ -91,7 +100,9 @@ nav a:hover {
   font-size: 1.2rem;
 }
 
-/* CONTENT */
+/* ============================= */
+/* CONTENT & CARTES              */
+/* ============================= */
 .content {
   width: 90%;
   max-width: 1000px;
@@ -99,7 +110,7 @@ nav a:hover {
   margin: 80px auto 20px;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .content h2,
@@ -110,12 +121,10 @@ nav a:hover {
   font-weight: 600;
 }
 
-/* Espacement pour les titres de sections */
 .section-title {
   margin-top: 30px;
 }
 
-/* Offres (cartes) */
 .offers-container {
   display: flex;
   flex-wrap: wrap;
@@ -146,26 +155,36 @@ nav a:hover {
 
 .offer-buttons {
   display: flex;
-  
   gap: 10px;
   justify-content: center;
   margin-top: 10px;
 }
 
-/* Boutons */
-button.btn,
-a.btn-voir,
-a.btn-add {
-  border-radius: 20px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  text-decoration: none;
-  display: inline-block;
-}
+/* ============================= */
+/* BOUTONS COMMUNS              */
+/* ============================= */
 
 button.btn,
-a.btn-add {
+a.btn-voir,
+a.btn-add,
+a.btn-register,
+.btn-back,
+.btn-wishlist,
+.btn,
+.btn-login {
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  border-radius: 20px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* Boutons génériques (fond, padding) */
+button.btn,
+a.btn-add,
+a.btn-voir {
   background-color: #FFA07A;
   color: #fff;
   padding: 10px 20px;
@@ -173,15 +192,14 @@ a.btn-add {
 }
 
 button.btn:hover,
-a.btn-add:hover {
+a.btn-add:hover,
+a.btn-voir:hover {
   background-color: #FF6347;
 }
 
+/* Bouton "Voir" spécifique */
 a.btn-voir {
   background-color: #8CD0A8;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
 }
 
 a.btn-voir:hover {
@@ -194,27 +212,81 @@ a.btn-voir:hover {
   margin: 30px 0;
 }
 
-button.btn-register,
-a.btn-register {
-  display: inline-block;
-  margin: 0 auto;           
-  border-radius: 5px;       
+a.btn-register,
+button.btn-register {
   background-color: #808080;
-  color: white;              
+  color: white;
   padding: 10px 20px;
-  text-decoration: none;
+  border-radius: 5px;
+  margin: 0 auto;
   text-align: center;
-  cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-button.btn-register:hover,
-a.btn-register:hover {
+a.btn-register:hover,
+button.btn-register:hover {
   background-color: #666666;
 }
 
+/* Bouton Retour */
+.btn-back {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #FFA07A;
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
 
-/* Pagination */
+.btn-back:hover {
+  background-color: #FF6347;
+  transform: scale(1.05);
+  box-shadow: 0px 5px 15px rgba(255, 99, 71, 0.3);
+}
+
+/* Bouton Wishlist */
+.btn-wishlist {
+  background-color: #6FCF97;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-wishlist:hover {
+  background-color: #4CAF50;
+  box-shadow: 0px 4px 12px rgba(111, 207, 151, 0.4);
+  transform: scale(1.05);
+}
+
+.btn-wishlist::before {
+  content: "❤️";
+  font-size: 16px;
+}
+
+/* Bouton Connexion */
+.btn-login {
+  background-color: #FFA07A;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.btn-login:hover {
+  background-color: #FF6347;
+}
+
+/* ============================= */
+/* PAGINATION                 */
+/* ============================= */
 .pagination {
   display: flex;
   justify-content: center;
@@ -228,277 +300,23 @@ a.btn-register:hover {
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
+  transition: background 0.3s ease-in-out;
 }
 
 .pagination a:hover {
   background-color: #FF6347;
 }
 
-/* ================================
-   CANDIDATURES
-   ================================ */
-
-/* Tableaux*/
-.styled-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 10px;
-  margin: 20px 0;
+.pagination .page-active {
+  background-color: #ff6600;
+  color: white;
+  pointer-events: none;
+  cursor: default;
 }
 
-.styled-table th, 
-.styled-table td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: left;
-}
-
-/* Statuts*/
-   .status-options {
-    display: flex;
-    gap: 10px;
-    margin-top: 5px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #fff;
-    position: absolute;
-    z-index: 10;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.status-btn {
-    padding: 8px 12px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-.status-btn.accepted {
-    background-color: #4CAF50;
-}
-
-.status-btn.pending {
-    background-color: #FFA500;
-}
-
-.status-btn.refused {
-    background-color: #D32F2F;
-}
-
-.status-btn:hover {
-    opacity: 0.8;
-}
-
-.status {
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-weight: bold;
-    color: white;
-}
-
-.status.accepted {
-    background-color: #4CAF50;
-}
-
-.status.pending {
-    background-color: #FFA500;
-}
-
-.status.refused {
-    background-color: #D32F2F;
-}
-
-.styled-table th {
-  background-color: #FFCC00;
-}
-
-
-/* ================================
-   DASHBOARD
-   ================================ */
-.dashboard-actions ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
-}
-
-.dashboard-actions ul li a {
-  min-width: 220px;
-  text-align: center;
-  display: inline-block;
-}
-
-/* Cartes de statistiques */
-.dashboard-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin: 20px 0;
-  justify-content: center;
-}
-
-.card {
-  background-color: #F0F0F0;
-  border-radius: 8px;
-  width: 200px;
-  padding: 20px;
-  text-align: center;
-}
-
-
-/* ================================
-   WISHLIST
-   ================================ */
-.wishlist-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.wishlist-list li {
-  margin: 15px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* ================================
-   NOTIFICATIONS
-   ================================ */
-   .notification {
-    position: fixed;
-    top: 135px;
-    left: 40%;
-    transform: translateX(-50%);
-    background-color: #007BFF; 
-    color: white;
-    padding: 15px 20px;
-    border-radius: 10px;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    opacity: 1;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
-    animation: fadeIn 0.3s ease-out forwards;
-}
-
-.notification.success {
-    background-color: #4CAF50; 
-}
-
-.notification.error {
-    background-color: #D32F2F; 
-}
-
-.notification.info {
-    background-color: #81b6ef; 
-}
-
-/* Style du bouton dans la notification */
-.notification .btn-view-wishlist {
-    background-color: #2E7D32;
-    color: white;
-    padding: 8px 14px;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-}
-
-.notification .btn-view-wishlist:hover {
-    background-color: #1B5E20;
-}
-
-/* Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-
-/* ================================
-  POP-UP
-   ================================ */
-
-.popup-form {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    display: none;
-    z-index: 1000;
-    width: 350px;
-}
-
-.popup-form h3 {
-    margin-bottom: 15px;
-    font-size: 18px;
-}
-
-.popup-form input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-.popup-form .btn-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-}
-
-.popup-form .btn-confirm,
-.popup-form .btn-cancel {
-    width: 45%;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-}
-
-.popup-form .btn-confirm {
-    background: #4CAF50;
-    color: white;
-}
-
-.popup-form .btn-cancel {
-    background: #888;
-    color: white;
-}
-
-.popup-form .btn-confirm:hover {
-    background: #388E3C;
-}
-
-.popup-form .btn-cancel:hover {
-    background: #666;
-}
-
-
-/* ================================
-  FORMULAIRES
-   ================================ */
+/* ============================= */
+/* FORMULAIRES & INPUTS         */
+/* ============================= */
 form {
   display: flex;
   flex-direction: column;
@@ -524,126 +342,143 @@ select {
   border-radius: 5px;
 }
 
-/* Zone des liens de compte (Login/Register) */
-.account-link {
-  text-align: center;
-  margin-top: 20px;
-}
-
-/* FOOTER */
-footer {
-  background-color: #FFD700;
-  padding: 10px;
-  text-align: center;
-  margin-top: auto;
+/* ============================= */
+/* TABLEAUX & STATUTS          */
+/* ============================= */
+.styled-table {
   width: 100%;
-  font-size: 0.9rem;
+  border-collapse: separate;
+  border-spacing: 10px;
+  margin: 20px 0;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  header {
-    justify-content: center;
-  }
-  .logo {
-    margin-bottom: 10px;
-  }
-  nav {
-    justify-content: center;
-  }
-  .content {
-    margin-top: 120px;
-  }
-  .dashboard-actions ul {
-    flex-direction: column;
-    align-items: center;
-  }
-  .dashboard-actions ul li a {
-    width: 100%;
-  }
-  .offer-card {
-    width: calc(50% - 20px);
-  }
+.styled-table th,
+.styled-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
 }
 
-@media (max-width: 480px) {
-  .offer-card {
-    width: 100%;
-  }
-}
-
-/* Alignement du header */
-header {
-  display: flex;
-  align-items: center; /* Centre les éléments verticalement */
-  justify-content: space-between;
+.styled-table th {
   background-color: #FFCC00;
-  padding: 15px 30px; /* Ajuste l'espacement */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Conteneur du logo */
-.header-left {
+/* Statuts & Boutons de statuts */
+.status-options {
   display: flex;
-  align-items: center;
-  margin-left: 15px; /* Déplace légèrement le logo vers la droite */
-}
-
-/* Style du logo avec une taille optimisée */
-.header-logo img {
-  height: 60px; /* Ajuste la hauteur */
-  width: auto; /* Garde les proportions */
-  max-width: 150px; /* Empêche l'agrandissement excessif */
-  display: block; /* Empêche le comportement inline */
-}
-
-/* Responsive : ajuste la taille du logo pour les petits écrans */
-@media (max-width: 768px) {
-  .header-logo {
-    height: 55px; /* Ajustement pour mobile */
-  }
-}
-
-/* Style des boutons Modifier et Supprimer */
-.btn-modifier, .btn-supprimer {
-  padding: 8px 15px;
-  font-size: 14px;
-  font-weight: bold;
+  gap: 10px;
+  margin-top: 5px;
+  padding: 10px;
   border-radius: 5px;
+  background-color: #fff;
+  position: absolute;
+  z-index: 10;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.status-btn {
+  padding: 8px 12px;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  text-transform: uppercase;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  transition: background 0.3s;
 }
 
-.btn-modifier {
-  background-color: #007BFF;
+.status-btn.accepted {
+  background-color: #4CAF50;
+}
+
+.status-btn.pending {
+  background-color: #FFA500;
+}
+
+.status-btn.refused {
+  background-color: #D32F2F;
+}
+
+.status-btn:hover {
+  opacity: 0.8;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
   color: white;
 }
 
-.btn-modifier:hover {
-  background-color: #0056b3;
+.status.accepted {
+  background-color: #4CAF50;
 }
 
-.btn-supprimer {
-  background-color: #DC3545;
-  color: white;
-  margin-left: 5px;
+.status.pending {
+  background-color: #FFA500;
 }
 
-.btn-supprimer:hover {
-  background-color: #a71d2a;
+.status.refused {
+  background-color: #D32F2F;
 }
 
-/* Centrer le texte dans les boutons */
-button {
+/* ============================= */
+/* DASHBOARD & MESSAGES         */
+/* ============================= */
+.dashboard-actions ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.dashboard-actions ul li {
+  margin: 10px;
+}
+
+.dashboard-actions ul li a {
   display: inline-block;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  background-color: #FFA07A;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
   text-align: center;
 }
 
-/* ✅ STYLE DE LA BULLE UTILISATEUR (ORANGE COMME LES AUTRES BOUTONS) */
+.dashboard-actions ul li a:hover {
+  background-color: #FF6347;
+  transform: scale(1.05);
+  box-shadow: 0px 5px 15px rgba(255, 99, 71, 0.3);
+}
+
+.welcome-message {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ============================= */
+/* POP-UP & MENU UTILISATEUR    */
+/* ============================= */
+#user-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 #user-icon {
-  background-color: #FFA07A; /* Orange comme les autres boutons */
+  background-color: #FFA07A;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -658,19 +493,16 @@ button {
 }
 
 #user-icon:hover {
-  background-color: #FF6347; /* Orange plus foncé au survol */
+  background-color: #FF6347;
 }
 
-/* ✅ LOGO UTILISATEUR BLANC */
 .user-logo {
   width: 30px;
   height: 30px;
-  filter: 
-  invert(100%); /* Rend l'icône blanche */
+  filter: invert(100%);
 }
 
-
-/* ✅ MENU DÉROULANT (Aligné proprement sous l'icône) */
+/* Menu déroulant */
 .dropdown-menu {
   position: absolute;
   top: 55px;
@@ -690,295 +522,14 @@ button {
   display: block;
 }
 
-/* ✅ STYLE DU BOUTON DÉCONNEXION */
-#logout-btn {
-  background-color: #DC3545;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  text-align: center;
-  transition: background-color 0.3s;
-}
-
-#logout-btn:hover {
-  background-color: #a71d2a;
-}
-
-
-/* Cacher un élément */
-.hidden {
-  display: none !important;
-}
-
-
-/* Style du bouton "Ajouter à la wishlist" */
-.btn-wishlist {
-  background-color: #6FCF97; /* Vert pastel comme le bouton "Voir" */
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 25px; /* Arrondi */
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-/* Effet au survol */
-.btn-wishlist:hover {
-  background-color: #4CAF50; /* Vert plus foncé */
-  box-shadow: 0px 4px 12px rgba(111, 207, 151, 0.4);
-  transform: scale(1.05);
-}
-
-/* Icône en option */
-.btn-wishlist::before {
-  content: "❤️"; /* Icône cœur */
-  font-size: 16px;
-}
-
-.header-logo h1 {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0;
-  color: #333;
-  text-align: center;
-}
-
-
-/* ================================
-   STYLE DES BOUTONS DASHBOARD
-   ================================ */
-   .dashboard-actions ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
-
-.dashboard-actions ul li {
-    margin: 10px;
-}
-
-.dashboard-actions ul li a {
-    display: inline-block;
-    padding: 12px 20px;
-    font-size: 16px;
-    font-weight: 600; /* Aligné avec les autres boutons */
-    font-family: 'Poppins', sans-serif; /* Assurer la cohérence */
-    text-transform: uppercase;
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    background-color: #FFA07A; /* Même couleur que les autres boutons */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-    text-align: center;
-}
-
-.dashboard-actions ul li a:hover {
-    background-color: #FF6347; /* Teinte plus foncée au survol */
-    transform: scale(1.05);
-    box-shadow: 0px 5px 15px rgba(255, 99, 71, 0.3);
-}
-
-/* ================================
-   STYLE DU MESSAGE "Bonjour, [Nom]"
-   ================================ */
-.welcome-message {
-    font-size: 18px;
-    font-weight: 500;
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Conteneur pour aligner les boutons Modifier et Supprimer */
-.action-buttons {
-  display: flex;
-  justify-content: center; /* Centre les boutons horizontalement */
-  align-items: center;
-  gap: 10px; /* Ajoute un espacement entre les boutons */
-}
-
-/* Styles des boutons Modifier et Supprimer */
-.btn-modifier, .btn-supprimer {
-  padding: 8px 15px;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  text-transform: uppercase;
-  text-align: center;
-  width: 120px; /* Largeur uniforme */
-}
-
-/* Bouton Modifier */
-.btn-modifier {
-  background-color: #007BFF;
-  color: white;
-}
-
-.btn-modifier:hover {
-  background-color: #0056b3;
-}
-
-/* Bouton Supprimer */
-.btn-supprimer {
-  background-color: #DC3545;
-  color: white;
-}
-
-.btn-supprimer:hover {
-  background-color: #a71d2a;
-}
-
-
-/* ✅ Bouton Retour bien stylisé */
-.btn-back {
-  display: inline-block;
-  padding: 12px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: white;
-  text-decoration: none;
-  border-radius: 25px;
-  background-color: #FFA07A; /* Même couleur que les autres boutons */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
-  text-align: center;
-  margin-top: 20px;
-}
-
-.btn-back:hover {
-  background-color: #FF6347; /* Teinte plus foncée au survol */
-  transform: scale(1.05);
-  box-shadow: 0px 5px 15px rgba(255, 99, 71, 0.3);
-}
-
-/* ✅ Bouton Wishlist */
-.btn-wishlist {
-  background-color: #6FCF97;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 25px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.btn-wishlist:hover {
-  background-color: #4CAF50;
-  box-shadow: 0px 4px 12px rgba(111, 207, 151, 0.4);
-  transform: scale(1.05);
-}
-
-
-
-.btn {
-  display: inline-block;
-  background-color: #007bff;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background 0.3s;
-}
-
-.btn:hover {
-  background-color: #0056b3;
-}
-
-.btn:focus {
-  outline: none;
-}
-
-/* ✅ STYLE DU BOUTON CONNEXION */
-.btn-login {
-  background-color: #FFA07A; /* Orange comme les autres boutons */
-  color: white;
-  padding: 10px 20px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.3s;
-}
-
-.btn-login:hover {
-  background-color: #FF6347; /* Orange plus foncé au survol */
-}
-
-#user-menu {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-/* ✅ STYLE DE LA BULLE RONDE (MÊME COULEUR QUE LE BOUTON CONNEXION) */
-#user-icon {
-  background-color: #FFA07A; /* Même orange que le bouton connexion */
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-  margin-left: 15px;
-  position: relative;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-#user-icon:hover {
-  background-color: #FF6347; /* Orange plus foncé au survol */
-}
-
-
-/* ✅ Style du menu déroulant */
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 50px;
-  right: 0;
-  background-color: white;
-  border: 1px solid #ddd;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  min-width: 150px;
-  z-index: 100;
-  padding: 10px;
-}
-
 .dropdown-menu p {
   margin: 0 0 10px;
   font-size: 14px;
   color: #333;
 }
 
-.dropdown-menu form {
+.dropdown-menu form,
+.dropdown-menu button {
   margin: 0;
   padding: 0;
 }
@@ -997,119 +548,98 @@ button {
   background-color: #f5f5f5;
 }
 
-/* ✅ Affichage du menu lorsque la classe "show" est activée */
-.dropdown-menu.show {
-  display: block;
-}
-
-/* ✅ MENU DÉROULANT PROPRE */
-.dropdown-menu {
-  position: absolute;
-  top: 55px;
-  right: 0;
-  background-color: white;
-  border: 1px solid #ddd;
+/* ============================= */
+/* FORMULAIRE DE CANDIDATURE    */
+/* ============================= */
+.form-candidature {
+  background-color: #fff;
   border-radius: 8px;
-  padding: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  min-width: 140px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
   text-align: center;
-  display: none;
-  z-index: 1000;
-}
-
-.dropdown-menu.show {
-  display: block;
-}
-
-/* ==============================
-   STYLE DU FORMULAIRE DE CANDIDATURE
-   ============================== */
-   .form-candidature {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 20px auto;
-    text-align: center;
 }
 
 .form-candidature h3 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
 }
 
-/* Styles des champs de texte */
 .form-candidature label {
-    display: block;
-    font-weight: 500;
-    margin-top: 10px;
-    text-align: left;
+  display: block;
+  font-weight: 500;
+  margin-top: 10px;
+  text-align: left;
 }
 
 .form-candidature textarea,
 .form-candidature input[type="file"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
-/* Style du bouton "Postuler" */
-.btn-postuler {
-    background-color: #FFA07A;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 25px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    display: inline-block;
-    margin-top: 15px;
+.form-candidature input[readonly] {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  font-weight: bold;
+  text-align: center;
 }
 
-.btn-postuler:hover {
-    background-color: #FF6347;
-    box-shadow: 0px 4px 12px rgba(255, 99, 71, 0.4);
-    transform: scale(1.05);
+
+/* ============================= */
+/* FOOTER                     */
+/* ============================= */
+footer {
+  background-color: #FFD700;
+  padding: 10px;
+  text-align: center;
+  margin-top: auto;
+  width: 100%;
+  font-size: 0.9rem;
 }
 
-/* ==============================
-   RESPONSIVE DESIGN
-   ============================== */
+/* ============================= */
+/* RESPONSIVE DESIGN            */
+/* ============================= */
 @media (max-width: 768px) {
-    .form-candidature {
-        width: 90%;
-    }
+  header {
+    justify-content: center;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  .content {
+    margin-top: 120px;
+  }
+
+  .dashboard-actions ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dashboard-actions ul li a {
+    width: 100%;
+  }
+
+  .offer-card {
+    width: calc(50% - 20px);
+  }
 }
 
-/* ==============================
-   STYLE DU CHAMP DATE
-   ============================== */
-   .form-candidature input[readonly] {
-    background-color: #f5f5f5;
-    cursor: not-allowed;
-    font-weight: bold;
-    text-align: center;
+@media (max-width: 480px) {
+  .offer-card {
+    width: 100%;
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
