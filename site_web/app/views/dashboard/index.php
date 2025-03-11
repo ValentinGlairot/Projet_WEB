@@ -15,7 +15,7 @@ $user = $_SESSION['user'];
 <main class="content">
     <h2>Dashboard</h2>
 
-    <!-- Ajout du message de bienvenue -->
+    <!-- Message de bienvenue -->
     <?php if (isset($_SESSION['user'])): ?>
         <p class="welcome-message">Bonjour, <?= htmlspecialchars($_SESSION['user']['prenom']) ?> !</p>
     <?php endif; ?>

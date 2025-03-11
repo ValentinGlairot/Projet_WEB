@@ -24,7 +24,6 @@
                         <a href="<?= BASE_URL ?>index.php?controller=offre&action=detail&id=<?= $offre['id'] ?>"
                             class='btn-voir'>Voir</a>
 
-                        <!-- Ajout à la wishlist -->
                         <form action="<?= BASE_URL ?>index.php?controller=wishlist&action=add" method="POST"
                             style="display:inline;">
                             <input type="hidden" name="offre_id" value="<?= $offre['id'] ?>">

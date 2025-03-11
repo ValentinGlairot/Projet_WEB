@@ -8,11 +8,6 @@
     <?php unset($_SESSION["error"]); ?>
 <?php endif; ?>
 
-
-
-
-
-
 <section class="content">
     <h3>Contactez-nous</h3>
     <form id="contact-form" action="<?= BASE_URL ?>index.php?controller=contact&action=send" method="POST">
