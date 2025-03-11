@@ -62,7 +62,6 @@ class CandidatureController extends BaseController
             $offre_id = $_POST['offre_id'];
             $lettre = trim($_POST['lettre']);
 
-            // Vérification et création du dossier uploads
             $upload_dir = dirname(__DIR__, 2) . "/public/uploads/";
             if (!is_dir($upload_dir)) {
                 mkdir($upload_dir, 0777, true);
@@ -75,7 +74,7 @@ class CandidatureController extends BaseController
                 $cv_destination = $upload_dir . $cv_name;
 
                 if (move_uploaded_file($cv_tmp_name, $cv_destination)) {
-                    // Sauvegarde en base de données
+                    // Sauvegarder en base de données
                     $pdo = \Database::getInstance();
                     $stmt = $pdo->prepare("INSERT INTO candidature (user_id, offre_id, date_soumission, statut, cv, lettre) 
                                            VALUES (?, ?, NOW(), 'en attente', ?, ?)");

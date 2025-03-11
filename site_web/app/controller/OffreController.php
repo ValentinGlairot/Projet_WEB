@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Controller\BaseController;
-use App\Model\Offre; // ✅ Import du bon modèle
+use App\Model\Offre;
 use Database;
 
 class OffreController extends BaseController
@@ -13,7 +13,7 @@ class OffreController extends BaseController
 
     public function __construct()
     {
-        $this->offreModel = new Offre(); // ✅ Initialisation du modèle
+        $this->offreModel = new Offre(); 
     }
 
     /**
@@ -210,7 +210,7 @@ class OffreController extends BaseController
             $offres = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         }
 
-        // Rendu de la vue avec les résultats de recherche
+        // Vue avec les résultats de recherche
         $this->render('offres/index.php', ['offres' => $offres, 'motcle' => $motcle]);
     }
 
