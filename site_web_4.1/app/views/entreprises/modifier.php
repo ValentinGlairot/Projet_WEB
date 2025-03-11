@@ -1,6 +1,7 @@
 <section class="content">
     <h3>Modifier une Entreprise</h3>
-    <form action="<?= BASE_URL ?>index.php?controller=entreprise&action=modifier&id=<?= $entreprise['id'] ?>" method="POST">
+    <form action="<?= BASE_URL ?>index.php?controller=entreprise&action=modifier&id=<?= $entreprise['id'] ?>"
+        method="POST">
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" value="<?= htmlspecialchars($entreprise['nom']) ?>" required>
 
@@ -15,13 +16,15 @@
 
         <!-- Nouveaux champs -->
         <label for="description">Description :</label>
-        <textarea id="description" name="description"><?= htmlspecialchars($entreprise['description'] ?? '') ?></textarea>
+        <textarea id="description"
+            name="description"><?= htmlspecialchars($entreprise['description'] ?? '') ?></textarea>
 
         <label for="email">Email de contact :</label>
         <input type="email" id="email" name="email" value="<?= htmlspecialchars($entreprise['email'] ?? '') ?>">
 
         <label for="telephone">Téléphone de contact :</label>
-        <input type="text" id="telephone" name="telephone" value="<?= htmlspecialchars($entreprise['telephone'] ?? '') ?>">
+        <input type="text" id="telephone" name="telephone"
+            value="<?= htmlspecialchars($entreprise['telephone'] ?? '') ?>">
 
         <button type="submit" class="btn">Modifier</button>
     </form>

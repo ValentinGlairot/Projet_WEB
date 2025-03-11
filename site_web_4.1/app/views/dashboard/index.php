@@ -3,10 +3,12 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Contrôleur doit déjà filtrer, mais on peut doubler la vérification :
-if (!isset($_SESSION['user']) 
-    || ( $_SESSION['user']['role'] !== 'Admin'
-         && $_SESSION['user']['role'] !== 'pilote' )) {
+// Filtré par le controller, mais vérificatin doublée
+if (
+    !isset($_SESSION['user'])
+    || ($_SESSION['user']['role'] !== 'Admin'
+        && $_SESSION['user']['role'] !== 'pilote')
+) {
     echo "<p>Accès refusé.</p>";
     exit;
 }
@@ -16,7 +18,7 @@ $user = $_SESSION['user'];
 
 <main class="content">
     <h2>Dashboard</h2>
-    
+
     <!-- Message de bienvenue -->
     <?php if (isset($_SESSION['user'])): ?>
         <p class="welcome-message">Bonjour, <?= htmlspecialchars($_SESSION['user']['prenom']) ?> !</p>
@@ -26,7 +28,8 @@ $user = $_SESSION['user'];
         <ul>
             <!-- Gérer les utilisateurs : Admin seulement -->
             <?php if ($_SESSION['user']['role'] === 'Admin'): ?>
-                <li><a href="<?= BASE_URL ?>index.php?controller=gestionutilisateurs&action=index">Gérer les utilisateurs</a></li>
+                <li><a href="<?= BASE_URL ?>index.php?controller=gestionutilisateurs&action=index">Gérer les
+                        utilisateurs</a></li>
             <?php endif; ?>
 
             <!-- Gérer les Offres : Admin/pilote -->

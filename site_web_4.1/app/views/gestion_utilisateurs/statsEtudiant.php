@@ -10,9 +10,10 @@
     <p><strong>Nombre de candidatures envoyées :</strong> <?= $nbCandidatures ?></p>
     <p><strong>Nombre d'offres en wishlist :</strong> <?= $nbWishlist ?></p>
 
-    <!-- Vous pouvez rajouter plus de statistiques (candidatures acceptées, etc.). -->
+    <!-- Rajouter plus de statistiques si besoin (candidatures acceptées, etc.). -->
 
     <div style="margin-top:20px;">
-        <a class="btn" href="<?= BASE_URL ?>index.php?controller=gestionutilisateurs&action=index">Retour à la liste des utilisateurs</a>
+        <a class="btn" href="<?= BASE_URL ?>index.php?controller=gestionutilisateurs&action=index">Retour à la liste des
+            utilisateurs</a>
     </div>
 </section>

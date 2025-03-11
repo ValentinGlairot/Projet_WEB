@@ -64,7 +64,8 @@
                 <h3>Supprimer cet utilisateur</h3>
                 <form action="<?= BASE_URL ?>index.php?controller=gestionutilisateurs&action=delete" method="POST">
                     <input type="hidden" name="id" value="<?= $search_result['id'] ?>">
-                    <button type="submit" class="btn" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')">Supprimer</button>
+                    <button type="submit" class="btn"
+                        onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')">Supprimer</button>
                 </form>
             </div>
         <?php elseif (isset($search_result) && empty($search_result)): ?>

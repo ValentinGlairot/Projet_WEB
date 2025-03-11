@@ -52,7 +52,7 @@ class Candidature extends BaseModel
         }
     }
 
-    public function postuler($userId, $offreId)
+    public function postuler($userId, $offreId)         
     {
         $sql = "INSERT INTO candidatures (user_id, offre_id, date_candidature) VALUES (?, ?, NOW())";
         $stmt = $this->db->prepare($sql);

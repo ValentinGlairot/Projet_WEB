@@ -19,7 +19,8 @@
         <textarea id="description" name="description" required><?= htmlspecialchars($offre['description']) ?></textarea>
 
         <label for="remuneration">Rémunération :</label>
-        <input type="number" id="remuneration" name="remuneration" value="<?= htmlspecialchars($offre['remuneration']) ?>" required>
+        <input type="number" id="remuneration" name="remuneration"
+            value="<?= htmlspecialchars($offre['remuneration']) ?>" required>
 
         <label for="date_debut">Date de début :</label>
         <input type="date" id="date_debut" name="date_debut" value="<?= $offre['date_debut'] ?>" required>
@@ -27,7 +28,6 @@
         <label for="date_fin">Date de fin :</label>
         <input type="date" id="date_fin" name="date_fin" value="<?= $offre['date_fin'] ?>" required>
 
-        <!-- Nouveau champ competences -->
         <label for="competences">Compétences :</label>
         <textarea id="competences" name="competences"><?= htmlspecialchars($offre['competences'] ?? '') ?></textarea>
 

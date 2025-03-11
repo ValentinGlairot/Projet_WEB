@@ -16,15 +16,21 @@
                         <td><?= htmlspecialchars($entreprise['nom']) ?></td>
                         <td><?= htmlspecialchars($entreprise['ville']) ?></td>
                         <td>
-                            <a href="<?= BASE_URL ?>index.php?controller=entreprise&action=details&id=<?= $entreprise['id'] ?>" class="btn-voir">Détails</a>
+                            <a href="<?= BASE_URL ?>index.php?controller=entreprise&action=details&id=<?= $entreprise['id'] ?>"
+                                class="btn-voir">Détails</a>
 
-                            <?php if (isset($_SESSION['user']) && 
-                                        ( $_SESSION['user']['role'] === 'Admin' 
-                                        || $_SESSION['user']['role'] === 'pilote' )): ?>
-                                <a href="<?= BASE_URL ?>index.php?controller=entreprise&action=modifier&id=<?= $entreprise['id'] ?>" class="btn-modifier">Modifier</a>
-                                <form action="<?= BASE_URL ?>index.php?controller=entreprise&action=supprimer" method="POST" style="display:inline;">
+                            <?php if (
+                                isset($_SESSION['user']) &&
+                                ($_SESSION['user']['role'] === 'Admin'
+                                    || $_SESSION['user']['role'] === 'pilote')
+                            ): ?>
+                                <a href="<?= BASE_URL ?>index.php?controller=entreprise&action=modifier&id=<?= $entreprise['id'] ?>"
+                                    class="btn-modifier">Modifier</a>
+                                <form action="<?= BASE_URL ?>index.php?controller=entreprise&action=supprimer" method="POST"
+                                    style="display:inline;">
                                     <input type="hidden" name="id" value="<?= $entreprise['id'] ?>">
-                                    <button type="submit" class="btn-supprimer" onclick="return confirm('Voulez-vous vraiment supprimer cette entreprise ?')">Supprimer</button>
+                                    <button type="submit" class="btn-supprimer"
+                                        onclick="return confirm('Voulez-vous vraiment supprimer cette entreprise ?')">Supprimer</button>
                                 </form>
                             <?php endif; ?>
                         </td>
@@ -38,15 +44,17 @@
     <?php endif; ?>
 
     <!-- Formulaire de création de Nouvelle Entreprise
-         => on peut l’afficher seulement à Admin/pilote. -->
-    <?php if (isset($_SESSION['user']) 
-              && ( $_SESSION['user']['role'] === 'Admin' 
-                   || $_SESSION['user']['role'] === 'pilote')): ?>
+         => on l’afficher seulement à Admin/pilote. -->
+    <?php if (
+        isset($_SESSION['user'])
+        && ($_SESSION['user']['role'] === 'Admin'
+            || $_SESSION['user']['role'] === 'pilote')
+    ): ?>
         <h3>Créer une Nouvelle Entreprise</h3>
         <form action="<?= BASE_URL ?>index.php?controller=entreprise&action=creer" method="POST">
             <label for="nom">Nom :</label>
             <input type="text" id="nom" name="nom" required>
-            
+
             <label for="ville">Ville :</label>
             <input type="text" id="ville" name="ville" required>
 

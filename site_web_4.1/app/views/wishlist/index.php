@@ -3,9 +3,9 @@
 <main class="content">
     <h2>Ma Wishlist</h2>
 
-    <?php if (!empty($wishlist)) : ?>
+    <?php if (!empty($wishlist)): ?>
         <ul>
-            <?php foreach ($wishlist as $item) : ?>
+            <?php foreach ($wishlist as $item): ?>
                 <li>
                     <strong><?= htmlspecialchars($item['titre']) ?></strong> - <?= htmlspecialchars($item['entreprise']) ?>
                     <form action="<?= BASE_URL ?>index.php?controller=wishlist&action=remove" method="POST">
@@ -15,7 +15,7 @@
                 </li>
             <?php endforeach; ?>
         </ul>
-    <?php else : ?>
+    <?php else: ?>
         <p>Votre wishlist est vide.</p>
     <?php endif; ?>
 </main>
