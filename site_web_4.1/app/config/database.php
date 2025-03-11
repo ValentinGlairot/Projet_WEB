@@ -1,13 +1,15 @@
 <?php
 // app/config/database.php
 
-class Database {
+class Database
+{
     private static $instance = null;
 
-    public static function getInstance() {
+    public static function getInstance()
+    {
         if (self::$instance === null) {
-            $host     = 'localhost';
-            $dbname   = 'projet_web';
+            $host = 'localhost';
+            $dbname = 'projet_web';
             $username = 'root';
             $password = '';
             $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
@@ -22,3 +24,4 @@ class Database {
         return self::$instance;
     }
 }
+?>
