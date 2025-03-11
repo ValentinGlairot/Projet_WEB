@@ -3,39 +3,32 @@ document.addEventListener("DOMContentLoaded", function () {
   const searchForm = document.querySelector(".search-form");
   const entreprisesList = document.getElementById("entreprises-list");
 
-  // Gestion de la soumission du formulaire de recherche
   searchForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // Affichage de la notification de recherche
     document.querySelectorAll(".notification.info").forEach(notification => notification.remove());
     const notification = document.createElement("div");
-    // Correction : retirer le point dans le className
     notification.className = "notification info";
     notification.textContent = "🔍 Recherche d'entreprise en cours...";
 
-        // Positionnement de la notification en haut de la page
-        notification.style.position = "fixed";
-        notification.style.top = "130px";
-        notification.style.left = "40%";
-        notification.style.transform = "translateX(-50%)";
-        notification.style.zIndex = "1000";
-    
+    notification.style.position = "fixed";
+    notification.style.top = "130px";
+    notification.style.left = "40%";
+    notification.style.transform = "translateX(-50%)";
+    notification.style.zIndex = "1000";
+
     document.body.appendChild(notification);
 
-    // Suppression automatique de la notification après 3 secondes
     setTimeout(() => {
       notification.remove();
     }, 3000);
 
-    // Récupération de la valeur saisie
     const searchValue = document.getElementById("recherche").value.trim().toLowerCase();
 
     // Appel à l'API pour récupérer les entreprises correspondant à la recherche
     fetch(`../api/get_entreprises.php?search=${encodeURIComponent(searchValue)}`)
       .then(response => response.json())
       .then(entreprises => {
-        // Réinitialiser le contenu de la liste
         entreprisesList.innerHTML = "";
 
         // S'il n'y a aucun résultat, afficher un message
@@ -72,5 +65,5 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error("Erreur lors du chargement des détails de l'entreprise :", error));
     }
-});
+  });
 });

@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // --- SECTION SUPPRESSION (V7) ---
-  // On part du principe que la liste affichée se trouve dans un conteneur avec la classe ".wishlist-list"
+  // --- SECTION SUPPRESSION  ---
   const wishlistList = document.querySelector(".wishlist-list");
   if (wishlistList) {
     wishlistList.addEventListener("click", function (e) {
@@ -17,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (data.success) {
               // Retire l’élément du DOM
               e.target.parentElement.remove();
-              // Affichage de la notification de suppression (style V6)
+              // Affichage de la notification de suppression
               showNotification("ℹ️ Offre retirée de la wishlist.", "info");
             } else {
               showNotification("Erreur : " + data.message, "error");
@@ -31,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // --- FONCTIONNALITÉS COMMUNES (V6) ---
+  // --- FONCTIONNALITÉS COMMUNES ---
 
   /**
    * Affiche une notification personnalisée.
@@ -41,13 +40,11 @@ document.addEventListener("DOMContentLoaded", function () {
    * @param {boolean} [withButton=false] - Si true, ajoute un bouton pour accéder à la wishlist.
    */
   function showNotification(message, type = "info", withButton = false) {
-    // Supprime d'éventuelles notifications existantes
     document.querySelectorAll(".notification").forEach(n => n.remove());
 
     const notification = document.createElement("div");
     notification.className = `notification ${type}`;
 
-    // Ajout d'une icône pour les notifications de succès
     if (type === "success") {
       notification.innerHTML = `✅ ${message}`;
     } else {
@@ -76,10 +73,10 @@ document.addEventListener("DOMContentLoaded", function () {
   /**
    * Ajoute une offre à la wishlist via l'API.
    *
-   * @param {string} offerTitle - Le titre de l'offre à ajouter.
+   * @param {string} offerTitle 
    */
   function addToWishlist(offerTitle) {
-    // On envoie la requête d'ajout à l'API (à adapter selon votre back-end)
+    // On envoie la requête d'ajout à l'API
     fetch("../api/add_wishlist.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -90,18 +87,17 @@ document.addEventListener("DOMContentLoaded", function () {
         if (data.success) {
           showNotification("Ajouté à la wishlist !", "success", true);
 
-          // Optionnel : mise à jour de l'affichage de la wishlist si l'élément existe dans le DOM
+          // Mise à jour de l'affichage de la wishlist si l'élément existe dans le DOM
           if (wishlistList) {
             const li = document.createElement("li");
             li.textContent = offerTitle;
             li.classList.add("wishlist-item");
             li.dataset.title = offerTitle;
 
-            // Le bouton de suppression doit utiliser la même classe et l'attribut data pour déclencher le code de suppression
             const removeBtn = document.createElement("button");
             removeBtn.textContent = "Retirer";
             removeBtn.classList.add("btn-remove");
-            // Utilisation d'un identifiant renvoyé par l'API (ou sinon on peut utiliser le titre)
+            // Utilisation d'un identifiant renvoyé par l'API 
             removeBtn.setAttribute("data-wishlist-id", data.wishlist_id || offerTitle);
 
             li.appendChild(removeBtn);

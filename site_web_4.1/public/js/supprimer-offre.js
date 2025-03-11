@@ -1,11 +1,11 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.querySelector('form'); // Le formulaire de suppression doit avoir un identifiant spécifique, par exemple "delete-offer-form"
-  
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.querySelector('form');
+
   if (form) {
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
       showNotification("✅ Offre supprimée avec succès !", "success");
-      
+
       setTimeout(() => {
         form.reset();
         window.location.href = "offres.html";

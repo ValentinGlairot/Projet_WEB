@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Fonction utilitaire : Affichage des notifications
   // --------------------------------------------------
   function showNotification(message, type = "info") {
-    // Supprime d'éventuelles notifications existantes
     document.querySelectorAll(".notification").forEach(n => n.remove());
     const notification = document.createElement("div");
     notification.className = "notification " + type;
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // --------------------------------------------------
   // Gestion de l'ajout à la wishlist
   // --------------------------------------------------
-  // Pour la page offre-detail, le bouton possède la classe "add-to-wishlist" et un attribut "data-title"
   const wishlistButton = document.querySelector(".add-to-wishlist");
   if (wishlistButton) {
     wishlistButton.addEventListener("click", function () {
@@ -31,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
         wishlist.push(offerTitle);
         localStorage.setItem("wishlist", JSON.stringify(wishlist));
         showNotification("Ajouté à la wishlist !", "success");
-        // Redirection après 1 seconde vers la page wishlist en surlignant l'offre ajoutée
         setTimeout(() => {
           window.location.href = `wishlist.php?highlight=${encodeURIComponent(offerTitle)}`;
         }, 1000);
@@ -48,16 +45,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const fileContainer = document.getElementById("cv-container");
   if (fileInput && fileContainer) {
     function updateFileDisplay(file) {
-      // Réinitialise le conteneur
       fileContainer.innerHTML = "";
       if (file) {
-        // Masque le champ fichier
         fileInput.style.display = "none";
-        // Crée un élément pour afficher le nom du fichier
+        // Élément pour afficher le nom du fichier
         const fileName = document.createElement("span");
         fileName.textContent = file.name;
         fileName.classList.add("file-name");
-        // Crée le bouton de suppression
+        // Bouton de suppression
         const removeBtn = document.createElement("button");
         removeBtn.textContent = "❌";
         removeBtn.classList.add("btn-remove");
@@ -95,7 +90,6 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
           if (data.success) {
             showNotification("Candidature envoyée avec succès !", "success");
-            // Redirection vers la page des candidatures après 1 seconde
             setTimeout(() => {
               window.location.href = "candidatures.php";
             }, 1000);

@@ -20,12 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
   modalClose.addEventListener('click', closeModal);
 
   // Fermer la modal si l'utilisateur clique en dehors du contenu
-  window.addEventListener('click', function(event) {
+  window.addEventListener('click', function (event) {
     if (event.target === modal) {
       closeModal();
     }
   });
 
-  // Exposez la fonction openModal pour pouvoir l'appeler depuis d'autres scripts
   window.openModal = openModal;
 });
